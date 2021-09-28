@@ -1,0 +1,118 @@
+#realisation{
+    background-color: rgb(255, 255, 255);
+}
+
+
+li{
+    list-style-type: none;
+}
+
+.navbar{
+    padding: 20px !important;
+}
+
+.navbar-nav > li{
+    margin-left:5px;
+    margin-right:5px;
+  }
+  
+footer{
+    background-color: rgb(194, 165, 3);
+    
+}
+
+input[id="email"]:invalid{
+    border: 2px solid red;
+
+}
+
+input[id="email"]:valid{
+    border: 2px solid green;
+
+}
+
+h1,p, article{
+    font-family:'Times New Roman', Times, serif;
+}
+
+/* header{
+    
+    padding: 12px 20px;
+    background-image: url("images/fond.jpg");
+    image-rendering: -webkit-optimize-contrast;
+    min-height: 60vh;
+    display:flex;
+    align-items: center;
+    background-size: cover;
+    background-position-y:center;
+    
+} */
+
+
+#footfaq{
+    
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding-top:50px;
+    height:200px;
+    align-items: center;
+    
+    
+    }
+
+    .container{
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    main{
+        margin: 0 12% 5px 12%;
+        flex:1
+    }
+    
+    /* Formulaire */
+
+    form{
+        width:100%;
+        justify-content: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    input[type=email],input[type=file],input[type=password],textarea{
+        width:100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type=text]{
+        width:100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      
+    }
+    
+    input[type="email"]:invalid{
+        border: 1px solid red;
+    
+    }
+    
+    input[type="email"]:valid{
+        border: 1px solid green;
+    
+    }
+    
+    
+    fieldset{
+        border: 1px solid #ccc;
+        margin-bottom: 8px;
+    }
+
+
+/* Barre de recherche  */
+
