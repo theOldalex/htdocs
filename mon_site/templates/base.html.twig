@@ -20,7 +20,7 @@
 
     <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-            <a class="navbar-brand" href="page_accueil.html">91xwriter - Alexandre Diakité</a>
+            <a class="navbar-brand" href="{{ path('home') }}"> 91xwriter - Alexandre Diakité</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -77,9 +77,25 @@
 
         <div class="jumbotron">
             <img src="{{ asset('/logo.PNG') }}" class="rounded-circle shadow p-3 mb-5 bg-white" alt="logo 91xwriter">
+            <h1 class="display-4">91xwriter - Alexandre Diakité</h1>
+            <p class="lead">Bonjour, bienvenue sur la version beta de mon site internet.</p>
+            <hr class="my-4">
+            <p>
+                Je suis Alexandre Diakité, photographe amateur, passionné par les transports en commun. <br>
+                J'ai commencé à partager mes photos sur Instagram en 2019 pour donner une autre vision des transports
+                aux gens, <br>
+                ce site internet reflète mon évolution dans les prises de photos depuis mes débuts et sera présenter
+                pour l'examen
+                final de ma formation de Développeur Web.
+
+            </p>
+            <a class="btn btn-warning btn-lg" href="#mecontacter" role="button">Me contacter</a>
+        </div>
+    
 
 
     </header>
         {% block body %}{% endblock %}
+        
     </body>
 </html>
