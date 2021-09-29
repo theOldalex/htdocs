@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Z5600 index{% endblock %}
+
+{% block body %}
+    <h1>Z5600 index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rames</th>
+                <th>Motrices</th>
+                <th>Mise_en_service</th>
+                <th>Livree</th>
+                <th>Nombre_de_caisses</th>
+                <th>Stf</th>
+                <th>Radiation</th>
+                <th>Equipements_interieurs</th>
+                <th>Lignes</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for z5600 in z5600s %}
+            <tr>
+                <td>{{ z5600.id }}</td>
+                <td>{{ z5600.Rames }}</td>
+                <td>{{ z5600.motrices }}</td>
+                <td>{{ z5600.miseEnService ? z5600.miseEnService|date('Y-m-d') : '' }}</td>
+                <td>{{ z5600.livree }}</td>
+                <td>{{ z5600.nombreDeCaisses }}</td>
+                <td>{{ z5600.stf }}</td>
+                <td>{{ z5600.radiation ? z5600.radiation|date('Y-m-d') : '' }}</td>
+                <td>{{ z5600.equipementsInterieurs }}</td>
+                <td>{{ z5600.lignes }}</td>
+                <td>
+                    <a href="{{ path('z5600_controller2_show', {'id': z5600.id}) }}">show</a>
+                    <a href="{{ path('z5600_controller2_edit', {'id': z5600.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('z5600_controller2_new') }}">Create new</a>
+{% endblock %}
