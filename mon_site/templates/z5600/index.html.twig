@@ -1,8 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Z5600Controller!{% endblock %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        {% block title %}Bienvenue{% endblock %}
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -92,72 +96,3 @@
             <a class="btn btn-warning btn-lg" href="#mecontacter" role="button">Me contacter</a>
         </div>
     
-    <!-- Carousel -->
-    <main>
-
-        <div id="carousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('/the_boxer.jpg') }}" class="d-block w-100" alt="sample">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('/the_boxer.jpg') }}" class="d-block w-100" alt="sample">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('/the_boxer.jpg') }}" class="d-block w-100" alt="sample">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Précedent</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Suivant</span>
-            </a>
-        </div>
-
-
-
-    </header>
-        {% block body %}{% endblock %}
-
-        <footer class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-2">
-                    <h5 class="py-2">Plan du site</h5>
-                    <ul>
-                        <li>
-                            <a href="#realisation">Mes réalisations</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Me contacter</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="col-2 offset-8">
-                    <h5>Réseaux sociaux</h5>
-                    <a href="https://www.instagram.com/91xwriter/"> <img src="{{ asset('/insta3.png') }}"
-                            alt="logo Instagram"></a>
-                    <a href="https://www.instagram.com/91xwriter/"> <img src="{{ asset('/insta3.png') }}"
-                            alt="logo Instagram"></a>
-                    <a href="https://www.instagram.com/91xwriter/"> <img src="{{ asset('/insta3.png') }}"
-                            alt="logo Instagram"></a>
-
-                </div>
-
-            </div>
-        </div>
-        </footer>
-        
-    </body>
-</html>
