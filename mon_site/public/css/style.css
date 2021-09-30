@@ -19,7 +19,54 @@ li{
 footer{
     background-color: rgb( 255, 193, 7);
     
+    
+    
 }
+
+#contact{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+padding-top:50px;
+
+height:200px;
+
+}
+
+#faq{
+
+    position:absolute;
+    
+    bottom:0;
+    
+    width:100%;
+    
+    padding-top:50px;
+    
+    height:200px;
+    
+    }
+
+
+    #base{
+
+        
+        
+        bottom:0px;
+        
+        width:100%;
+        
+        padding-top:50px;
+        
+        height:200px;
+
+        
+        
+        }
 
 input[id="email"]:invalid{
     border: 2px solid red;
@@ -61,6 +108,10 @@ h1,p, article{
     
     }
 
+    
+    
+
+
     .container{
         font-family: 'Times New Roman', Times, serif;
     }
@@ -78,6 +129,10 @@ h1,p, article{
         font-family: 'Times New Roman', Times, serif;
     }
     
+#formsection{
+    margin-bottom: 185px;
+}
+
     input[type=email],input[type=file],input[type=password],textarea{
         width:100%;
         padding: 12px 20px;
@@ -112,6 +167,8 @@ h1,p, article{
         border: 1px solid #ccc;
         margin-bottom: 8px;
     }
+
+    
 
 
 /* Barre de recherche  */
