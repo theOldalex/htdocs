@@ -108,8 +108,17 @@ h1,p, article{
     
     }
 
-    
-    
+    .darkmode--activated p, .darkmode--activated li {
+        color: rgb(0, 0, 0);
+      }
+      
+      .button {
+        isolation:isolate;
+      }
+      
+      .darkmode--activated .logo {
+        mix-blend-mode: difference;
+      }
 
 
     .container{
