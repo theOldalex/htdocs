@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'z5600/index.html.twig' %}
 
 {% block title %}Z5600{% endblock %}
 
@@ -6,6 +6,7 @@
     <h1>Z5600</h1>
 
     <table class="table">
+    {% for z5600 in Z5600 %}
         <tbody>
             <tr>
                 <th>Id</th>
@@ -48,6 +49,7 @@
                 <td>{{ z5600.lignes }}</td>
             </tr>
         </tbody>
+        {% endblock %}
     </table>
 
     <a href="{{ path('z5600_controller2_index') }}">back to list</a>
