@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegisterController extends AbstractController
 {
     
-    //   @Route("/inscription", name="register")
+    //   @Route("/register", name="register")
      
     public function index(): Response
     {
