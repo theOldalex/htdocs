@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        
+        {% block title %}{% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-
+    
      </head>
     <body>
 
@@ -67,14 +67,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('contact') }}">Me contacter</a>
                     </li>
-                        
+
                     
                 </ul>
 
             </div>
 
         </nav>
-
 <div class="jumbotron">
             <h1 class="display-4">Les Z5600</h1>
             <img src="{{ asset('/z5600_3.jpeg') }}" class="my-6 " style="width: 500px;" alt="Z5600 à Juvisy - RER C"> 
@@ -89,88 +88,59 @@
         </div>
        
     </div>
- 
         </header>
+        
 
-        <main>
-            <table class="table">
-                <thead>
-                    <h1>État du matériel</h1>
-                  <tr>
-                    <th scope="col">Rames</th>
-                    <th scope="col">Motrices</th>
-                    <th scope="col">Mise en service</th>
-                    <th scope="col">Livrée</th>
-                    <th scope="col">Nombre de caisses</th>
-                    <th scope="col">STF</th>
-                    <th scope="col">Radiation</th>
-                    <th scope="col">Équipements intérieurs</th>
-                    <th scope="col">Lignes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">01C</th>
-                    <td>Z5601/02</td>
-                    <td>09/12/1983</td>
-                    <td>Transilien</td>
-                    <td>6</td>
-                    <td>/</td>
-                    <td>21/10/2020</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td><button type="button" class="btn btn-outline-dark">❤</button></td>
-                    
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">01C</th>
-                    <td>Z5601/02</td>
-                    <td>09/12/1983</td>
-                    <td>Transilien</td>
-                    <td>6</td>
-                    <td>/</td>
-                    <td>21/10/2020</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td><button type="button" class="btn btn-outline-dark">❤</button></td>
-                    
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">01C</th>
-                    <td>Z5601/02</td>
-                    <td>09/12/1983</td>
-                    <td>Transilien</td>
-                    <td>6</td>
-                    <td>/</td>
-                    <td>21/10/2020</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td><button type="button" class="btn btn-outline-dark">❤</button></td>
-                    
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">01C</th>
-                    <td>Z5601/02</td>
-                    <td>09/12/1983</td>
-                    <td>Transilien</td>
-                    <td>6</td>
-                    <td>/</td>
-                    <td>21/10/2020</td>
-                    <td>/</td>
-                    <td>/</td>
-                    <td><button type="button" class="btn btn-outline-dark">❤</button></td>
-                    
-                    
-                  </tr>
-                 
-                </tbody>
-              </table>
 
-        </main>
+<main>
+{% block body %}
+    <h1>Etat du matériel</h1>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rames</th>
+                <th>Motrices</th>
+                <th>Mise_en_service</th>
+                <th>Livree</th>
+                <th>Nombre_de_caisses</th>
+                <th>Stf</th>
+                <th>Radiation</th>
+                <th>Equipements_interieurs</th>
+                <th>Lignes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for z5600 in z5600s %}
+            <tr>
+                <td>{{ z5600.id }}</td>
+                <td>{{ z5600.Rames }}</td>
+                <td>{{ z5600.motrices }}</td>
+                <td>{{ z5600.miseEnService ? z5600.miseEnService|date('Y-m-d') : '' }}</td>
+                <td>{{ z5600.livree }}</td>
+                <td>{{ z5600.nombreDeCaisses }}</td>
+                <td>{{ z5600.stf }}</td>
+                <td>{{ z5600.radiation ? z5600.radiation|date('Y-m-d') : '' }}</td>
+                <td>{{ z5600.equipementsInterieurs }}</td>
+                <td>{{ z5600.lignes }}</td>
+                <td>
+                    <a href="{{ path('z5600_show', {'id': z5600.id}) }}">show</a>
+                    <a href="{{ path('z5600_edit', {'id': z5600.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('z5600_new') }}">Create new</a>
+{% endblock %}
+</main>
 <footer class="py-5">
         <div class="container">
             <div class="row">
@@ -316,32 +286,13 @@
 					</div>
 				</div>
 			</div>
+            
         </body>
 
         
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-		<script>
-			function addDarkmodeWidget() {
-new Darkmode().showWidget();
-}
-window.addEventListener('load', addDarkmodeWidget);
-const options = {
-bottom: '200px',
-right: '20px', // default: '32px'
-left: 'unset', // default: 'unset'
-mixColor: '#fff', // default: '#fff'
-backgroundColor: '#fff', // default: '#fff'
-buttonColorDark: '#100f2c', // default: '#100f2c'
-buttonColorLight: '#fff', // default: '#fff'
-saveInCookies: true // default: true,
-label: '🌓', // default: ''
-autoMatchOsTheme: true // default: true
-}
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-		</script>
 </html>
+
 
 
 
