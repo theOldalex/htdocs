@@ -178,6 +178,9 @@ h1,p, article{
         margin-bottom: 8px;
     }
 
+    tr{
+        text-align: center;
+    }
     
 
 
