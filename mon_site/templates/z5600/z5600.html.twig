@@ -126,8 +126,8 @@
                 <td>{{ z5600.equipementsInterieurs }}</td>
                 <td>{{ z5600.lignes }}</td>
                 <td>
-                    <a href="{{ path('z5600_show', {'id': z5600.id}) }}">show</a>
-                    <a href="{{ path('z5600_edit', {'id': z5600.id}) }}">edit</a>
+                    <a class="btn btn-warning" href="{{ path('z5600_show', {'id': z5600.id}) }}">Voir</a>
+                    <a class="btn btn-primary" href="{{ path('z5600_edit', {'id': z5600.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -138,7 +138,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('z5600_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('z5600_new') }}">Ajouter une rame +</a>
 {% endblock %}
 </main>
 <footer class="py-5">
