@@ -1,4 +1,6 @@
-<form method="post" action="{{ path('z5600_delete', {'id': z5600.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer cette rame ?');">
+
+
+<form method="post" action="{{ path('z5600_delete', {'id': z5600.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer cette rame ? 😐');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ z5600.id) }}">
     <button class="btn btn-danger">Supprimer</button>
 </form>

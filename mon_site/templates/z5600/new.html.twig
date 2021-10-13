@@ -11,12 +11,25 @@
 
 
 	</head>
+    <body>
+    <main>
 
 
 {% block body %}
-    <h1>Ajouter une nouvelle rame</h1>
+<div class="container">
 
+    <h1>Ajouter une nouvelle rame</h1>
+    
+<div class="form-group">
     {{ include('z5600/_form.html.twig') }}
+    </div>
+    <div class="retournerliste">
 
     <a class="btn btn-secondary" href="{{ path('z5600') }}">Revenir à la liste</a>
+    </div>
+    </div>
+    
+    
 {% endblock %}
+
+

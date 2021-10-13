@@ -182,6 +182,9 @@ h1,p, article{
         text-align: center;
     }
     
+    .retournerliste{
+        display: inline-block;
+    }
 
 
 /* Barre de recherche  */
