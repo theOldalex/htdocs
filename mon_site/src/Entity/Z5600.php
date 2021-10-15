@@ -49,7 +49,7 @@ class Z5600
     private $stf;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date")
      */
     private $radiation;
 
@@ -140,12 +140,12 @@ class Z5600
         return $this;
     }
 
-    public function getRadiation(): ?string
+    public function getRadiation(): ?\DateTimeInterface
     {
         return $this->radiation;
     }
 
-    public function setRadiation(string $radiation): self
+    public function setRadiation(\DateTimeInterface $radiation): self
     {
         $this->radiation = $radiation;
 

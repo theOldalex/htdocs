@@ -9,29 +9,45 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-
-
-
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class Z5600Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Rames')
-            ->add('motrices')
+            ->add('Rames', TextType::class, [
+
+            ])
+            ->add('motrices', TextType::class, [
+                
+            ])
             ->add('mise_en_service', DateType::class, [
-                'years' => range(1980, 2026), 
-                'label' => "Mise en service"
+                'widget'=> 'single_text',
+                'input_format'=> 'd/m/Y',
+                
             ])
-            ->add('livree', ChoiceType::class, [
-                'placeholder' => 'Choose an option',
+            ->add('livree', TextType::class
+                
+                )
+            ->add('nombre_de_caisses', TextType::class
+                
+                )
+            ->add('stf', TextType::class
+                
+                )
+            ->add('radiation', DateType::class, [
+                'widget'=> 'single_text',
+                'input_format'=> 'd/m/Y',
+                
             ])
-            ->add('nombre_de_caisses')
-            ->add('stf')
-            ->add('radiation')
-            ->add('equipements_interieurs')
-            ->add('lignes')
+            ->add('equipements_interieurs', TextType::class
+                
+                )
+            ->add('lignes', TextType::class
+                
+                )
         ;
     }
 

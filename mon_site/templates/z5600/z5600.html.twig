@@ -118,11 +118,11 @@
                 <td>{{ z5600.id }}</td>
                 <td>{{ z5600.Rames }}</td>
                 <td>{{ z5600.motrices }}</td>
-                <td>{{ z5600.miseEnService ? z5600.miseEnService|date('Y-m-d') : '' }}</td>
+                <td>{{ z5600.miseEnService ? z5600.miseEnService|date('d-m-Y') : '' }}</td>
                 <td>{{ z5600.livree }}</td>
                 <td>{{ z5600.nombreDeCaisses }}</td>
                 <td>{{ z5600.stf }}</td>
-                <td>{{ z5600.radiation ? z5600.radiation|date('Y-m-d') : '' }}</td>
+                <td>{{ z5600.radiation ? z5600.radiation|date('d-m-Y') : 'range(1980, 2026)' }}</td>
                 <td>{{ z5600.equipementsInterieurs }}</td>
                 <td>{{ z5600.lignes }}</td>
                 <td>

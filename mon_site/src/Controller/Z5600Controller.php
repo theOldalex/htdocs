@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Z5600;
-use App\Form\Z56001Type;
+use App\Form\Z5600Type;
 use App\Repository\Z5600Repository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class Z5600Controller extends AbstractController
     public function new(Request $request): Response
     {
         $z5600 = new Z5600();
-        $form = $this->createForm(Z56001Type::class, $z5600);
+        $form = $this->createForm(Z5600Type::class, $z5600);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,8 +63,9 @@ class Z5600Controller extends AbstractController
      */
     public function edit(Request $request, Z5600 $z5600): Response
     {
-        $form = $this->createForm(Z56001Type::class, $z5600);
+        $form = $this->createForm(Z5600Type::class, $z5600);
         $form->handleRequest($request);
+        // dd($form);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -91,4 +92,7 @@ class Z5600Controller extends AbstractController
 
         return $this->redirectToRoute('z5600', [], Response::HTTP_SEE_OTHER);
     }
+
 }
+
+
