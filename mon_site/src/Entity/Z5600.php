@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\Z5600Repository;
+use Doctrine\DBAL\Types\StringType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,7 +49,7 @@ class Z5600
     private $stf;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=255)
      */
     private $radiation;
 
@@ -139,12 +140,12 @@ class Z5600
         return $this;
     }
 
-    public function getRadiation(): ?\DateTimeInterface
+    public function getRadiation(): ?string
     {
         return $this->radiation;
     }
 
-    public function setRadiation(\DateTimeInterface $radiation): self
+    public function setRadiation(string $radiation): self
     {
         $this->radiation = $radiation;
 
@@ -174,4 +175,9 @@ class Z5600
 
         return $this;
     }
-}
+
+    
+
+        
+    }
+
