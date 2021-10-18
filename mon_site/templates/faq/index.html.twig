@@ -18,61 +18,7 @@
     <body>
 
     <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-            <a class="navbar-brand" href="{{ path('home') }}"> 91xwriter - Alexandre Diakité</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-
-                    <li class="nav-item">
-                        <button class="btn btn-dark pb-modalreglog-submit" data-toggle="modal"
-                            data-target="#exampleModal">S'inscrire</button>
-                        </button>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="btn btn-warning pb-modalreglog-submit" data-toggle="modal" data-target="#myModal">Connexion</button>
-
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('realisation') }}">Mes réalisations</a>
-                    </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Les trains</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ path('z5600') }}">Z5600</a>
-                            <a class="dropdown-item" href="#">Z8800</a>
-                            <a class="dropdown-item" href="#">Z20500</a>
-                            <a class="dropdown-item" href="#">Z22500</a>
-                            <a class="dropdown-item" href="#">Z20900</a>
-
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('faq') }}">FAQ</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('contact') }}">Me contacter</a>
-                    </li>
-
-                    
-                </ul>
-
-            </div>
-
-        </nav>
+{% include 'nav.html' %}
 </header>
 <main>
 <section class="py-5 py-5">
@@ -275,26 +221,5 @@
 
         
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-		<script>
-			function addDarkmodeWidget() {
-new Darkmode().showWidget();
-}
-window.addEventListener('load', addDarkmodeWidget);
-const options = {
-bottom: '200px',
-right: '20px', // default: '32px'
-left: 'unset', // default: 'unset'
-mixColor: '#fff', // default: '#fff'
-backgroundColor: '#fff', // default: '#fff'
-buttonColorDark: '#100f2c', // default: '#100f2c'
-buttonColorLight: '#fff', // default: '#fff'
-saveInCookies: true, // default: true,
-label: '🌓', // default: ''
-autoMatchOsTheme: true // default: true
-}
-
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-		</script>
+    
 </html>

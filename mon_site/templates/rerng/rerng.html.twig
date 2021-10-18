@@ -21,10 +21,9 @@
        
     </div>
         </header>
-        
-
 
 <main>
+
 {% block body %}
     <h1>Etat du matériel</h1>
 
@@ -34,32 +33,32 @@
                 <th>Id</th>
                 <th>Rames</th>
                 <th>Motrices</th>
-                <th>Mise en service</th>
+                <th>Mise_en_service</th>
                 <th>Livree</th>
-                <th>Nombre de caisses</th>
+                <th>Nombre_de_caisses</th>
                 <th>Stf</th>
                 <th>Radiation</th>
-                <th>Equipements interieurs</th>
+                <th>Equipements_interieurs</th>
                 <th>Lignes</th>
-                <th>Actions</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for z5600 in z5600s %}
+        {% for r_e_r_n_g in r_e_r_n_gs %}
             <tr>
-                <td>{{ z5600.id }}</td>
-                <td>{{ z5600.Rames }}</td>
-                <td>{{ z5600.motrices }}</td>
-                <td>{{ z5600.miseEnService ? z5600.miseEnService|date('d-m-Y') : '' }}</td>
-                <td>{{ z5600.livree }}</td>
-                <td>{{ z5600.nombreDeCaisses }}</td>
-                <td>{{ z5600.stf }}</td>
-                <td>{{ z5600.radiation ? z5600.radiation|date('d-m-Y') : 'range(1980, 2026)' }}</td>
-                <td>{{ z5600.equipementsInterieurs }}</td>
-                <td>{{ z5600.lignes }}</td>
+                <td>{{ r_e_r_n_g.id }}</td>
+                <td>{{ r_e_r_n_g.Rames }}</td>
+                <td>{{ r_e_r_n_g.motrices }}</td>
+                <td>{{ r_e_r_n_g.miseEnService ? r_e_r_n_g.miseEnService|date('Y-m-d') : '' }}</td>
+                <td>{{ r_e_r_n_g.livree }}</td>
+                <td>{{ r_e_r_n_g.nombreDeCaisses }}</td>
+                <td>{{ r_e_r_n_g.stf }}</td>
+                <td>{{ r_e_r_n_g.radiation ? r_e_r_n_g.radiation|date('Y-m-d') : '' }}</td>
+                <td>{{ r_e_r_n_g.equipementsInterieurs }}</td>
+                <td>{{ r_e_r_n_g.lignes }}</td>
                 <td>
-                    <a class="btn btn-warning" href="{{ path('z5600_show', {'id': z5600.id}) }}">Voir</a>
-                    <a class="btn btn-primary" href="{{ path('z5600_edit', {'id': z5600.id}) }}">Editer</a>
+                    <a href="{{ path('r_e_r_n_g_show', {'id': r_e_r_n_g.id}) }}">Voir</a>
+                    <a href="{{ path('r_e_r_n_g_edit', {'id': r_e_r_n_g.id}) }}">Editer</a>
                     <button type="button" class="btn btn-dark">❤</button>
                 </td>
             </tr>
@@ -68,30 +67,11 @@
             <tr>
             
                 <td colspan="11">Aucune rame 😢</td>
-            
-            </tr>
-            </div>
+                </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-success" href="{{ path('z5600_new') }}">Ajouter une rame +</a>
+    <a class="btn btn-success" href="{{ path('r_e_r_n_g_new') }}">Ajouter une rame +</a>
+    </main>
 {% endblock %}
-</main>
-{% include 'footer.html' %}
-        
-        {% include 'espace_utilisateur.html' %}
-            
-        </body>
-
-        
-
-</html>
-
-
-
-
-
-
-
-

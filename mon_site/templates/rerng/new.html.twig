@@ -1,0 +1,23 @@
+{% include 'head.html' %}
+
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1>Ajouter une nouvelle rame</h1>
+<div class="form-group">
+
+    
+    
+
+    
+
+    {{ include('rerng/_form.html.twig') }}
+    </div>
+    <div class="retournerliste">
+
+    <a href="{{ path('rerng') }}">Revenir à la liste</a>
+    </div>
+    </div>
+{% endblock %}

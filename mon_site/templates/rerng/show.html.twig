@@ -1,0 +1,58 @@
+
+
+{% block title %}RERNG{% endblock %}
+
+{% block body %}
+    <h1>RERNG</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ r_e_r_n_g.id }}</td>
+            </tr>
+            <tr>
+                <th>Rames</th>
+                <td>{{ r_e_r_n_g.Rames }}</td>
+            </tr>
+            <tr>
+                <th>Motrices</th>
+                <td>{{ r_e_r_n_g.motrices }}</td>
+            </tr>
+            <tr>
+                <th>Mise_en_service</th>
+                <td>{{ r_e_r_n_g.miseEnService ? r_e_r_n_g.miseEnService|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Livree</th>
+                <td>{{ r_e_r_n_g.livree }}</td>
+            </tr>
+            <tr>
+                <th>Nombre_de_caisses</th>
+                <td>{{ r_e_r_n_g.nombreDeCaisses }}</td>
+            </tr>
+            <tr>
+                <th>Stf</th>
+                <td>{{ r_e_r_n_g.stf }}</td>
+            </tr>
+            <tr>
+                <th>Radiation</th>
+                <td>{{ r_e_r_n_g.radiation ? r_e_r_n_g.radiation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Equipements_interieurs</th>
+                <td>{{ r_e_r_n_g.equipementsInterieurs }}</td>
+            </tr>
+            <tr>
+                <th>Lignes</th>
+                <td>{{ r_e_r_n_g.lignes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('rerng') }}">back to list</a>
+
+    <a href="{{ path('r_e_r_n_g_edit', {'id': r_e_r_n_g.id}) }}">edit</a>
+
+    {{ include('r_e_r_n_g/_delete_form.html.twig') }}
+{% endblock %}

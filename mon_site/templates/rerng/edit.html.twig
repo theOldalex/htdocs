@@ -1,0 +1,13 @@
+
+
+{% block title %}Edit RERNG{% endblock %}
+
+{% block body %}
+    <h1>Edit RERNG</h1>
+
+    {{ include('rerng/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('rerng') }}">Revenir à la liste</a>
+
+    {{ include('rerg/_delete_form.html.twig') }}
+{% endblock %}
