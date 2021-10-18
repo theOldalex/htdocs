@@ -28,7 +28,7 @@ class RERNG
     private $motrices;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $mise_en_service;
 
@@ -48,7 +48,7 @@ class RERNG
     private $stf;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $radiation;
 
