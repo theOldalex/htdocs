@@ -16,10 +16,10 @@
     </li>
 
     <li class="nav-item">
-        <button class="btn btn-warning pb-modalreglog-submit" data-toggle="modal" data-target="#myModal">Connexion</button>
-
+    <a href="{{ path('app_login') }}" class="btn btn-warning active">Se connecter</a>
+        
     </li>
-    
+     
 
 
     <li class="nav-item">
@@ -31,7 +31,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Les trains</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ path('z5600') }}">Z5600</a>
-            <a class="dropdown-item" href="{{ path('app_login') }}">Z8800</a>
+            <a class="dropdown-item" href="#">Z8800</a>
             <a class="dropdown-item" href="#">Z20500</a>
             <a class="dropdown-item" href="#">Z22500</a>
             <a class="dropdown-item" href="#">Z20900</a>
