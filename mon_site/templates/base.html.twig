@@ -27,7 +27,7 @@
 		<li data-target="#carousel" data-slide-to="1"></li>
 		<li data-target="#carousel" data-slide-to="2"></li>
 	</ol>
-	<div class="carousel-inner">
+	{# <div class="carousel-inner">
 		<div class="carousel-item active">
 			<img src="{{ asset('/the_boxer.jpg') }}" class="d-block w-100" alt="sample">
 		</div>
@@ -46,7 +46,7 @@
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="sr-only">Suivant</span>
 	</a>
-</div></header><!-- Formulaire de contact --><section class="py-5" id="formsection">
+</div></header><!-- Formulaire de contact --><section class="py-5" id="formsection"> #}
 <h2 class="text-center" id="mecontacter">Me contacter</h2>
 <div class="container">
 	<div class="row justify-content-center">
@@ -91,7 +91,7 @@
 
 {% include 'footer.html' %}
 
-{% include 'espace_utilisateur.html' %}
+{% include 'espace_utilisateur.html.twig' %}
 		</body>
 
 		

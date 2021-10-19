@@ -1,0 +1,14 @@
+{% extends 'gabarit_liste.html.twig' %}
+
+{% block thead %}
+	<th>Nom</th>
+{% endblock %}
+
+{% block tbody %}
+	{% for matiere in matieres %}
+		<tr>
+			<td>{{ matiere.nom }}</td>
+			<td></td>
+		</tr>
+	{% endfor %}
+{% endblock %}
