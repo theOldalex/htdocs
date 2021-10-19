@@ -31,7 +31,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Les trains</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ path('z5600') }}">Z5600</a>
-            <a class="dropdown-item" href="#">Z8800</a>
+            <a class="dropdown-item" href="{{ path('app_login') }}">Z8800</a>
             <a class="dropdown-item" href="#">Z20500</a>
             <a class="dropdown-item" href="#">Z22500</a>
             <a class="dropdown-item" href="#">Z20900</a>
@@ -48,6 +48,17 @@
         <a class="nav-link" href="#mecontacter">Me contacter</a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('cgu') }}">Cgu</a>
+    </li>
+
+    <li class="nav-item">
+        {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    </li>
 </ul>
 
 </div>

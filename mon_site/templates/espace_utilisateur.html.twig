@@ -1,3 +1,7 @@
+
+{% block body %}
+
+
 <!-- Espace pour les membres --><div class="container pb-modalreglog-container"><div class="row"><div class="col-xs-12 col-md-4 offset-md-4">
 
 <div
@@ -15,7 +19,7 @@
 			</div>
 			<h4 class="col-xs-12 col-md-4 offset-md-4">S'inscrire</h4>
 			<div class="modal-body">
-				<form action="#" method="POST">
+				<form method="post">
 					<div class="form-group">
 						<label for="email">E-mail:
 						</label>
@@ -77,33 +81,42 @@
 						</div>
 						<h4 class="col-xs-12 col-md-4 offset-md-4">Connexion</h4>
 						<div class="modal-body">
-							<form>
+							<form method="post">
 								<div class="form-group">
-									<label for="email">E-mail:
+									<label for="inputEmail">E-mail:
 									</label>
 									<div class="input-group pb-modalreglog-input-group">
-										<input type="email" class="form-control" id="email" name"email" placeholder="Saisissez votre adresse e-mail !" required>
+										<input type="email" class="form-control" name="email" id="inputEmail" autocomplete="email" placeholder="Saisissez votre adresse e-mail !" required>
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-user"></span>
 										</span>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="password">Mot-de-passe:
+									<label for="inputPassword">Mot-de-passe:
 									</label>
 									<div class="input-group pb-modalreglog-input-group">
-										<input type="password" class="form-control" id="pws" placeholder="Saisissez votre mot-de-passe !">
+										<input type="password" class="form-control" id="inputPassword" autocomplete="current-password" placeholder="Saisissez votre mot-de-passe !">
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-lock"></span>
 										</span>
 									</div>
 								</div>
+
+                                                                            
 							</form>
 						</div>
 						<div class="modal-footer">
+									
+									<div class="checkbox mb-3">
+										<input type="checkbox" name="_remember_me"> Remember me
+                                        
+                                        </div>
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 							<button type="button" class="btn btn-warning">Connexion</button>
 						</div>
 					</div>
 				</div>
 			</div>
+
+            {% endblock body %}
