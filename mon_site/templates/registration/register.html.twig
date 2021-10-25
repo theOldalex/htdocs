@@ -22,9 +22,14 @@
         }) }}
         {{ form_row(registrationForm.Cgu) }}
 
-        <button type="submit" class="btn btn-warning">Register</button>
+        <button type="submit" class="btn btn-warning">S'inscrire</button>
         </div>
         <div>
         </div>
+        <div class="container pb-modalreglog-container">
+        <div class="row">
+    <div class="col-xs-12 col-md-4 offset-md-4">
+        Vous avez déja un compte ? <a href="{{ path('app_login') }}">Connectez-vous</a>
+
     {{ form_end(registrationForm) }}
 {% endblock %}
