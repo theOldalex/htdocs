@@ -18,11 +18,11 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('Cgu', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter nos Conditions Générales d/Utilisation.',
                     ]),
                 ],
             ])
