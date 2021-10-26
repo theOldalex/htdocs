@@ -12,6 +12,7 @@
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+    
 
 <div class="container pb-modalreglog-container">
 	<div class="row">
@@ -47,6 +48,10 @@
     </div>
     </div>
     </div>
+    <div class="container pb-modalreglog-container">
+        <div class="row">
+    <div class="col-xs-12 col-md-4 offset-md-4">
+        Mot de passe oublié ? 🤔 <a style="color: #000000" href="{{ path('app_forgot_password_request') }}">Reinitialiser son mot de passe</a>
 </form>
 {% endblock %}
 

@@ -1,0 +1,11 @@
+
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <p>
+        Si votre compte existe, un email contenant un lien pour réinitialiser votre mot de passe vous sera alors envoyer.
+        Attention ce lien expira dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </p>
+    <p>Si vous ne recevez pas de d'email verifiez vos spam ou <a href="{{ path('app_forgot_password_request') }}">recommencer</a>.</p>
+{% endblock %}

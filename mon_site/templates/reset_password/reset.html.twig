@@ -1,0 +1,28 @@
+{% include 'head.html' %}
+
+<body>
+
+		<header>
+			{% include 'nav.html.twig' %}
+            </header>
+
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container pb-modalreglog-container">
+	<div class="row">
+		<div class="col-xs-12 col-md-4 offset-md-4">
+    <h1>Réinitialiser son mot de passe</h1>
+
+    {{ form_start(resetForm) }}
+        {{ form_row(resetForm.plainPassword) }}
+        <button class="btn btn-warning">Envoyer</button>
+    {{ form_end(resetForm) }}
+    </div>
+    </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>
