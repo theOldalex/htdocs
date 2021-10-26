@@ -1,25 +1,9 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        {% block title %}{% endblock %}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
-    
-     </head>
+{% include 'head.html' %}
     <body>
 
     <header>
-{% include 'nav.html' %}
+{% include 'nav.html.twig' %}
         </header>
         
         <main>
@@ -109,161 +93,13 @@
     </main>
 
         
-        <footer class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-2">
-                    <h5 class="py-2">Plan du site</h5>
-                    <ul>
-                        <li>
-                            <a href="#realisation">Mes réalisations</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Me contacter</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="col-2 offset-8">
-                    <h5>Réseaux sociaux</h5>
-                    <a href="https://www.instagram.com/91xwriter/"> <img src="{{ asset('/insta3.png') }}"
-                            alt="logo Instagram"></a>
-                    <a href="https://www.instagram.com/91xwriter/"> <img src="{{ asset('/insta3.png') }}"
-                            alt="logo Instagram"></a>
-                    <a href="https://www.instagram.com/91xwriter/"> <img src="{{ asset('/insta3.png') }}"
-                            alt="logo Instagram"></a>
-
-                </div>
-
-            </div>
-        </div>
-        </footer>
-        <!-- Espace pour les membres -->
-
-
-                <div class="container pb-modalreglog-container">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-4 offset-md-4">
-                          
-                            <div class="input-group pb-modalreglog-input-group">
-                                <!-- <button class="btn btn-warning pb-modalreglog-submit" data-toggle="modal" data-target="#exampleModal">S'inscrire</button> -->
-                               
-                            </div>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                           
-                                        </div>
-                                        <h4 class="col-xs-12 col-md-4 offset-md-4">S'inscrire</h4>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="email">E-mail: </label>
-                                                    <div class="input-group pb-modalreglog-input-group">
-                                                        <input type="email" class="form-control" id="email" placeholder="Saisissez votre adresse e-mail !">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="password">Mot-de-passe: </label>
-                                                    <div class="input-group pb-modalreglog-input-group">
-                                                        <input type="password" class="form-control" id="pws" placeholder="Saisissez un mot-de-passe fort !">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                    </div>
-                                                    
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="password">Confirmez votre mot-de-passe: </label>
-                                                    <div class="input-group pb-modalreglog-input-group">
-                                                        <input type="password" class="form-control" id="pws" placeholder="Confirmez votre mot-de-passe fort !">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                    </div>
-                                            </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            <button type="button" class="btn btn-warning">S'inscrire</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            <div class="container pb-modalreglog-container">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-4 offset-md-4">
-                                      
-                                        <div class="input-group pb-modalreglog-input-group">
-                                            <!-- <button class="btn btn-warning pb-modalreglog-submit" data-toggle="modal" data-target="#myModal">Connexion</button> -->
-                                           
-                                        </div>
-                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                        
-                                                    </div>
-                                                    <h4 class="col-xs-12 col-md-4 offset-md-4">Connexion</h4>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label for="email">E-mail: </label>
-                                                                <div class="input-group pb-modalreglog-input-group">
-                                                                    <input type="email" class="form-control" id="email" placeholder="Saisissez votre adresse e-mail !">
-                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="password">Mot-de-passe: </label>
-                                                                <div class="input-group pb-modalreglog-input-group">
-                                                                    <input type="password" class="form-control" id="pws" placeholder="Saisissez votre mot-de-passe !">
-                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                                        <button type="button" class="btn btn-warning">Connexion</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+        {% include 'footer.html' %}
+        
                             
 
         
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-		<script>
-			function addDarkmodeWidget() {
-new Darkmode().showWidget();
-}
-window.addEventListener('load', addDarkmodeWidget);
-const options = {
-bottom: '200px',
-right: '20px', // default: '32px'
-left: 'unset', // default: 'unset'
-mixColor: '#fff', // default: '#fff'
-backgroundColor: '#fff', // default: '#fff'
-buttonColorDark: '#100f2c', // default: '#100f2c'
-buttonColorLight: '#fff', // default: '#fff'
-saveInCookies: true, // default: true,
-label: '🌓', // default: ''
-autoMatchOsTheme: true // default: true
-}
-
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-		</script>
+    
 </html>
 
 
