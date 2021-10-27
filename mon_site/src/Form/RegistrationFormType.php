@@ -20,6 +20,7 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('Cgu', CheckboxType::class, [
                 'mapped' => false,
+                'label' => 'J\'accepte les Conditions Générales d\'Utilisation',
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez accepter nos Conditions Générales d/Utilisation.',
@@ -33,11 +34,11 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

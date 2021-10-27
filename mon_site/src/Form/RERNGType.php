@@ -20,15 +20,47 @@ class RERNGType extends AbstractType
                 'widget'=> 'single_text',
                 'input_format'=> 'd/m/Y',
             ])
-            ->add('livree')
+            ->add('livree', ChoiceType::class, [
+                'choices' => [
+                    '--Choissisez une livrée--' => [
+                        'Ile-de-France Mobilités' => 'Ile-de-France Mobilités',
+
+                    ],
+
+                ],
+                
+            ])
             ->add('nombre_de_caisses')
             ->add('stf')
             ->add('radiation' , DateType::class, [
                 'widget'=> 'single_text',
                 'input_format'=> 'd/m/Y',
             ])
-            ->add('equipements_interieurs')
-            ->add('lignes')
+            ->add('equipements_interieurs',ChoiceType::class, [
+                'choices' => [
+                    '--Choissisez les équipements intérieurs--' => [
+                        'SIVE - vidéosurveillance' => 'SIVE - vidéosurveillance',
+                        
+                        
+
+                    ],
+
+                ],
+                
+            ])
+            ->add('lignes',ChoiceType::class, [
+                'choices' => [
+                    '--Choissisez une ou plusieurs ligne(s)--' => [
+                        'RER D' => 'RER D',
+                        'RER E' => 'RER E',
+                        'En essai' => 'En essai',
+                        
+
+                    ],
+
+                ],
+                
+            ])
         ;
     }
 

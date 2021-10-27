@@ -32,10 +32,10 @@ class Z5600Type extends AbstractType
             ->add('livree', ChoiceType::class, [
                 'choices' => [
                     '--Choissisez une livrée--' => [
-                        'Transilien' => 'livree',
-                        'Ile-de-France' => 'livree',
-                        'Ile-de-France Mobilités' => 'livree',
-                        'Carmillon' => 'livree',
+                        'Transilien' => 'Transilien',
+                        'Ile-de-France' => 'Ile-de-France',
+                        'Ile-de-France Mobilités' => 'Ile-de-France Mobilités',
+                        'Carmillon' => 'Carmillon',
 
                     ],
 
@@ -50,8 +50,8 @@ class Z5600Type extends AbstractType
             ->add('stf',ChoiceType::class, [
                 'choices' => [
                     '--Choissisez une Supervision Technique de Flotte--' => [
-                        'STF Transilien ligne C (SLC)' => 'stf',
-                        'STF Transilien ligne D et R (SLD)' => 'stf',
+                        'STF Transilien ligne C (SLC)' => 'SLC',
+                        'STF Transilien ligne D et R (SLD)' => 'SLD',
                         
 
                     ],
@@ -67,7 +67,7 @@ class Z5600Type extends AbstractType
             ->add('equipements_interieurs',ChoiceType::class, [
                 'choices' => [
                     '--Choissisez les équipements intérieurs--' => [
-                        'SIVE - vidéosurveillance' => 'equipements_interieurs',
+                        'SIVE - vidéosurveillance' => 'SIVE - vidéosurveillance',
                         
                         
 
@@ -78,9 +78,18 @@ class Z5600Type extends AbstractType
             ])
                 
                 
-            ->add('lignes', TextType::class
+            ->add('lignes',ChoiceType::class, [
+                'choices' => [
+                    '--Choissisez une ou plusieurs ligne(s)--' => [
+                        'RER C' => 'RER C',
+                        'Transilien R' => 'Transilien R',
+                        
+
+                    ],
+
+                ],
                 
-                )
+            ])
         ;
     }
 
