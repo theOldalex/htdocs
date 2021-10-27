@@ -1,0 +1,38 @@
+<html>
+{% include 'head.html' %}
+	<body>
+
+		<header>
+			{% include 'nav.html.twig' %}
+            </header>
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    
+<div class="row">
+    {% for realisation in realisations %}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{realisation.photo}}">
+        <div class="card-body">
+            <h4 class="card-title">
+                {{ realisation.id }}
+            </h4>
+            <p class="card-text">{{ realisation.nomImage }} </p>
+            <p class="card-text">Publié par {{ realisation.auteur }}</p>
+            <p class="card-text">{{ realisation.datePublication ? realisation.datePublication|date('Y-m-d') : '' }}</p>
+            <p class="card-text">>{{ realisation.descriptionImage }}</p>
+            <p class="card-text">
+                <a href="{{ path('realisation_show', {'id': realisation.id}) }}">show</a>
+                    <a href="{{ path('realisation_edit', {'id': realisation.id}) }}">edit</a>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock body %}
+
+
+</body>
+</html>

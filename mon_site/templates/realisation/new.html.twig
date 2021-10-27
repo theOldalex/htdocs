@@ -1,0 +1,23 @@
+<html>
+{% include 'head.html' %}
+<body>
+
+<header>
+{% include 'nav.html.twig' %}
+</header>
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1>Create new Realisation</h1>
+
+    {{ include('realisation/_form.html.twig') }}
+
+    <a href="{{ path('realisation') }}">back to list</a>
+{% endblock %}
+
+
+
+
+
+</body>
+</html>
