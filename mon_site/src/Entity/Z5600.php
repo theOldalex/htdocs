@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=Z5600Repository::class)
+ * @ORM\Table(name="z5600", indexes={@ORM\Index(columns={"rames", "motrices"}, flags={"fulltext"})})
  */
 class Z5600
 {
