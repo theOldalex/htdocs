@@ -186,6 +186,8 @@ h1,p, article{
         display: inline-block;
     }
 
-
+    .containercard{
+        padding: 12px 20px;
+    }
 /* Barre de recherche  */
 

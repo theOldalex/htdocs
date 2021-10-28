@@ -9,13 +9,17 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Edit Realisation</h1>
+<div class="container">
+    <h1>Editer une photo</h1>
+    <div class="form-group">
 
     {{ include('realisation/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
-
+</div>
     <a class="btn btn-secondary" href="{{ path('realisation') }}">Retourner à la liste</a>
 
     {{ include('realisation/_delete_form.html.twig') }}
+    </div>
+    </div>
 {% endblock %}
 
 

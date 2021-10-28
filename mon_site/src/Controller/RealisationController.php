@@ -39,7 +39,7 @@ class RealisationController extends AbstractController
             $entityManager->persist($realisation);
             $entityManager->flush();
 
-            return $this->redirectToRoute('realisation/new.html.twig', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('realisation', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('realisation/new.html.twig', [

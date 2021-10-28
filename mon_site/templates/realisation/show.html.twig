@@ -1,9 +1,16 @@
+<html>
+{% include 'head.html' %}
+	<body>
 
+		<header>
+			{% include 'nav.html.twig' %}
+            </header>
 
 {% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Realisation</h1>
+<div class="container">
+    <h1>Mes réalisations</h1>
 
     <table class="table">
         <tbody>
@@ -16,15 +23,15 @@
                 <td>{{ realisation.auteur }}</td>
             </tr>
             <tr>
-                <th>Nom_image</th>
+                <th>Nom de l'image</th>
                 <td>{{ realisation.nomImage }}</td>
             </tr>
             <tr>
-                <th>Date_publication</th>
+                <th>Date de publication</th>
                 <td>{{ realisation.datePublication ? realisation.datePublication|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Description_image</th>
+                <th>Description</th>
                 <td>{{ realisation.descriptionImage }}</td>
             </tr>
             <tr>
@@ -34,9 +41,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('realisation') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('realisation') }}">Retourner à la liste</a>
 
-    <a href="{{ path('realisation_edit', {'id': realisation.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('realisation_edit', {'id': realisation.id}) }}">Editer</a>
 
     {{ include('realisation/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
