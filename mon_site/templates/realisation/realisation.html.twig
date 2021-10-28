@@ -10,21 +10,23 @@
 
 {% block body %}
     
+    <div class="container">
 <div class="row">
     {% for realisation in realisations %}
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{realisation.photo}}">
         <div class="card-body">
             <h4 class="card-title">
-                {{ realisation.id }}
+                {{ realisation.nomImage }} 
             </h4>
-            <p class="card-text">{{ realisation.nomImage }} </p>
             <p class="card-text">Publié par {{ realisation.auteur }}</p>
             <p class="card-text">{{ realisation.datePublication ? realisation.datePublication|date('Y-m-d') : '' }}</p>
             <p class="card-text">>{{ realisation.descriptionImage }}</p>
             <p class="card-text">
-                <a href="{{ path('realisation_show', {'id': realisation.id}) }}">show</a>
-                    <a href="{{ path('realisation_edit', {'id': realisation.id}) }}">edit</a>
+                <a class="btn btn-warning" href="{{ path('realisation_show', {'id': realisation.id}) }}">Voir</a>
+                    <a class="btn btn-info" href="{{ path('realisation_edit', {'id': realisation.id}) }}">Editer</a>
+                    <a class="btn btn-success" href="{{ path('realisation_new', {'id': realisation.id}) }}">Ajouter +</a>
+        
             </p>
         </div>
     </div>

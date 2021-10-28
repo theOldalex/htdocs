@@ -38,7 +38,7 @@ class Realisation
     private $description_image;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
      */
     private $photo;
 

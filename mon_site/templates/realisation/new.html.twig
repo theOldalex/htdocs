@@ -8,11 +8,16 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Create new Realisation</h1>
+<div class="container">
 
+    <h1>Ajouter une nouvelle photo</h1>
+<div class="form-group">
     {{ include('realisation/_form.html.twig') }}
-
-    <a href="{{ path('realisation') }}">back to list</a>
+</div>
+<div class="retournerliste">
+    <a class="btn btn-secondary" href="{{ path('realisation') }}">Retourner à la liste</a>
+    </div>
+    </div>
 {% endblock %}
 
 

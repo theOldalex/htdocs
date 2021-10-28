@@ -6,14 +6,14 @@
 			{% include 'nav.html.twig' %}
             </header>
 
-{% block title %}Edit Realisation{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
     <h1>Edit Realisation</h1>
 
-    {{ include('realisation/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('realisation/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('realisation') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('realisation') }}">Retourner à la liste</a>
 
     {{ include('realisation/_delete_form.html.twig') }}
 {% endblock %}
