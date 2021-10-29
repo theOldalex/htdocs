@@ -20,7 +20,7 @@ class Commentaire
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre;
+    private $prenom;
 
     /**
      * @ORM\Column(type="text")

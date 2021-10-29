@@ -1,10 +1,16 @@
-{% extends 'base.html.twig' %}
+<html>
+{% include 'head.html' %}
+	<body>
 
-{% block title %}Article index{% endblock %}
+		<header>
+			{% include 'nav.html.twig' %}
+            </header>
+
+{% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
-
+<div class="container">
+    <h1>Liste des articles</h1>
     <table class="table">
         <thead>
             <tr>
@@ -12,9 +18,9 @@
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>Image</th>
-                <th>Date_publication</th>
-                <th>Commentaire</th>
-                <th>actions</th>
+                <th>Date de publication</th>
+                <th>Commentaires</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,17 +33,22 @@
                 <td>{{ article.datePublication ? article.datePublication|date('Y-m-d') : '' }}</td>
                 <td>{{ article.commentaire }}</td>
                 <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    <a class="btn btn-warning" href="{{ path('article_show', {'id': article.id}) }}">Voir</a>
+                    <a class="btn btn-info" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">C'est vide ici !</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('article_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('article_new') }}">Ajouter un article +</a>
+    </div>
 {% endblock %}
+
+
+</body>
+</html>

@@ -1,10 +1,16 @@
-{% extends 'base.html.twig' %}
+<html>
+{% include 'head.html' %}
+	<body>
 
-{% block title %}Article{% endblock %}
+		<header>
+			{% include 'nav.html.twig' %}
+            </header>
+{% block title %}{% endblock %}
 
 {% block body %}
     <h1>Article</h1>
 
+<div class="container">
     <table class="table">
         <tbody>
             <tr>
@@ -24,19 +30,24 @@
                 <td>{{ article.image }}</td>
             </tr>
             <tr>
-                <th>Date_publication</th>
+                <th>Date de publication</th>
                 <td>{{ article.datePublication ? article.datePublication|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Commentaire</th>
+                <th>Commentaires</th>
                 <td>{{ article.commentaire }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('article_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('article') }}">Retourner à la liste</a>
 
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
 
     {{ include('article/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
+
+
+</body>
+</html>
