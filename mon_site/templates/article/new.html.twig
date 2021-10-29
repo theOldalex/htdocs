@@ -1,11 +1,23 @@
+<html>
+{% include 'head.html' %}
+	<body>
 
+		<header>
+			{% include 'nav.html.twig' %}
+            </header>
 
 {% block title %}{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Ajouter un article</h1>
 
     {{ include('article/_form.html.twig') }}
 
     <a class="btn btn-secondary" href="{{ path('article') }}">Retourner à la liste</a>
+    </div>
 {% endblock %}
+
+
+</body>
+</html>
