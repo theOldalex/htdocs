@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/r/e/r/n/g")
+ * @Route("rerng")
  */
 class RERNGController extends AbstractController
 {

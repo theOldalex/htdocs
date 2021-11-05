@@ -17,7 +17,7 @@ li{
     margin-right:5px;
   }
   
-footer{
+#footer{
     background-color: rgb( 255, 193, 7);
     
     
@@ -189,5 +189,6 @@ h1,p, article{
     .containercard{
         padding: 12px 20px;
     }
+
 /* Barre de recherche  */
 

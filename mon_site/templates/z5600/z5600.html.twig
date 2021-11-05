@@ -59,7 +59,9 @@
                 <td>{{ z5600.lignes }}</td>
                 <td>
                     <a class="btn btn-warning" href="{{ path('z5600_show', {'id': z5600.id}) }}">Voir</a>
-                    <a class="btn btn-primary" href="{{ path('z5600_edit', {'id': z5600.id}) }}">Editer</a>
+                     {% if is_granted('ROLE_ADMIN') %}
+                    <a class="btn btn-info" href="{{ path('z5600_edit', {'id': z5600.id}) }}">Editer</a>
+                    {% endif %}
                     <button type="button" class="btn btn-dark">❤</button>
                 </td>
             </tr>
@@ -74,8 +76,9 @@
         {% endfor %}
         </tbody>
     </table>
-
+ {% if is_granted('ROLE_ADMIN') %}
     <a class="btn btn-success" href="{{ path('z5600_new') }}">Ajouter une rame +</a>
+    {% endif %}
 {% endblock %}
 </main>
 {% include 'footer.html' %}

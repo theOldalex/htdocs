@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class Z5600Controller extends AbstractController
 {
     /**
-     * @Route("/z5600", name="z5600")
+     * @Route("/", name="z5600", methods={"GET"})
      */
     public function index(Z5600Repository $z5600Repository): Response
     {
