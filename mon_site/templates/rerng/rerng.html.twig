@@ -60,11 +60,11 @@
                 <td>
     
 
-                    <a class="btn btn-warning" href="{{ path('rerng_show', {'id': r_e_r_n_g.id}) }}">Voir</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('rerng_show', {'id': r_e_r_n_g.id}) }}">Voir</a>
                     {% if is_granted('ROLE_ADMIN') %}
                     <a class="btn btn-info" href="{{ path('rerng_edit', {'id': r_e_r_n_g.id}) }}">Editer</a>
                     {% endif %}
-                    <button type="button" class="btn btn-dark">❤</button>
+                    <button type="button" class="btn btn-dark btn-sm">❤</button>
                 </td>
             </tr>
         {% else %}

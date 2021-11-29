@@ -58,11 +58,11 @@
                 <td>{{ z5600.equipementsInterieurs }}</td>
                 <td>{{ z5600.lignes }}</td>
                 <td>
-                    <a class="btn btn-warning" href="{{ path('z5600_show', {'id': z5600.id}) }}">Voir</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('z5600_show', {'id': z5600.id}) }}">Voir</a>
                      {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-info" href="{{ path('z5600_edit', {'id': z5600.id}) }}">Editer</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('z5600_edit', {'id': z5600.id}) }}">Editer</a>
                     {% endif %}
-                    <button type="button" class="btn btn-dark">❤</button>
+                    <button type="button" class="btn btn-dark btn-sm">❤</button>
                 </td>
             </tr>
         {% else %}
