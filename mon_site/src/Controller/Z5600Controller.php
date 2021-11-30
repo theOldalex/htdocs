@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Z5600;
 use App\Form\Z5600Type;
+use App\Form\SearchZ5600Type;
 use App\Repository\Z5600Repository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
      * @Route("/z5600")
@@ -18,10 +19,17 @@ class Z5600Controller extends AbstractController
     /**
      * @Route("/", name="z5600", methods={"GET"})
      */
-    public function index(Z5600Repository $z5600Repository): Response
+    public function index(Z5600Repository $z5600Repository, Request $request): Response
     {
+        $form = $this->createForm(SearchZ5600Type::class,);
+        $search = $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            
+        }
+
         return $this->render('z5600/z5600.html.twig', [
             'z5600s' => $z5600Repository->findAll(),
+            'form' => $form->createView()
         ]);
     }
 
