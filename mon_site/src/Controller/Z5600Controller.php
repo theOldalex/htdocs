@@ -24,13 +24,14 @@ class Z5600Controller extends AbstractController
         $form = $this->createForm(SearchZ5600Type::class,);
         $search = $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            
+            $z5600 = $z5600Repository->search($search->get('mots')->getData());
         }
 
         return $this->render('z5600/z5600.html.twig', [
             'z5600s' => $z5600Repository->findAll(),
             'form' => $form->createView()
         ]);
+        
     }
 
     /**
