@@ -15,17 +15,17 @@
         <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
         <a href="{{ path('home') }}"><img src="{{ asset('/logo.PNG') }}" class="rounded-circle shadow p-3 mb-5 bg-white" alt="logo 91xwriter"></a>
       </div>
-      <a href="#" class="sidenav-link active">Link 1</a>
-      <a href="#" class="sidenav-link">Link 2</a>
+      <a href="{{ path('home') }}" class="sidenav-link">Accueil</a>
+      <a href="{{ path('users') }}" class="sidenav-link active">Mon profil</a>
       <a href="#" class="sidenav-link">Link 3</a>
-      <a href="#" class="sidenav-link">Link 4</a>
+      <a href="#" class="sidenav-link">Se déconnecter</a>
     </div>
 
     <main>
       <!-- Code here the main content -->
       <button data-target="example-sidenav"
         class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
-          Open sidenav
+          Ouvrir
       </button>
     
     
