@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% endblock %}
 
-<form method="post">
+<form method="post" id="login-form">
+
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -23,6 +24,8 @@
 	<div class="row">
     
 		<div class="col-xs-12 col-md-4 offset-md-4">
+    
+
 
 			
 				{# class="input-group pb-modalreglog-input-group"><!-- <button class="btn btn-warning pb-modalreglog-submit" data-toggle="modal" data-target="#myModal">Connexion</button> --> #}
@@ -57,6 +60,9 @@
         <div class="row">
     <div class="col-xs-12 col-md-4 offset-md-4">
         Mot de passe oublié ? 🤔 <a style="color: #000000" href="{{ path('app_forgot_password_request') }}">Reinitialiser son mot de passe</a>
+</div>
+</div>
+</div>
 </form>
 {% endblock %}
 

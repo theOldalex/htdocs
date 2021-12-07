@@ -6,6 +6,13 @@
 			{% include 'nav.html.twig' %}
 			<div class="jumbotron">
 				<a href="{{ path('home') }}"><img src="{{ asset('/logo.PNG') }}" class="rounded-circle shadow p-3 mb-5 bg-white" alt="logo 91xwriter"></a>
+				{% if app.user %}
+				<div class="alert alert-success" role="alert">
+  				Vous vous etes connecté avec succès !
+				   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				</div>
+				{% endif %}
 				<h1 class="display-4">91xwriter - Alexandre Diakité</h1>
 				<p class="lead">Bonjour, bienvenue sur la version beta de mon site internet.</p>
 				<hr class="my-4">
