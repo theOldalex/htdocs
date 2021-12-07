@@ -55,19 +55,20 @@
 
     <li class="nav-item">
         {% if app.user %}
+        <a class="nav-link" href="{{ path('users') }}">Mon profil</a>
+        {% endif %}
+    </li>
+
+    <li class="nav-item">
+        {% if app.user %}
         <div class="nav-link">
             <strong>Bienvenue {{ app.user.prenom }}!</strong> <a href="{{ path('app_logout') }}">❌</a>
         </div>
     {% endif %}
     </li>
 
-    <li class="nav-item">
-        {% if app.user %}
-        <div class="nav-link">
-        <a href="#">⚙</a>
-        </div>
-    {% endif %}
-    </li>
+    
+    
 </ul>
 
 </div>
