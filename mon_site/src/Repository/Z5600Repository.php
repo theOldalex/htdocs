@@ -19,6 +19,21 @@ class Z5600Repository extends ServiceEntityRepository
         parent::__construct($registry, Z5600::class);
     }
 
+    /**Problème avec le signe different de*/
+    
+
+    public function search($mots){
+        $query = $this->createQueryBuilder('a');
+        $query->where('a.active = 1');
+        if($mots != null){
+            $query->andWhere('MATCH_AGAINST(a.title, a.content) AGAINST (:mots boolean)>0')
+            ->setParameter('mots', $mots);
+        }
+    
+        return $query -> getQuery() -> getResult();
+        
+    }
+
     // /**
     //  * @return Z5600[] Returns an array of Z5600 objects
     //  */
@@ -46,5 +61,7 @@ class Z5600Repository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
     */
 }
+

@@ -21,7 +21,6 @@
     </li>
      
 
-
     <li class="nav-item">
         <a class="nav-link" href="{{ path('realisation') }}">Mes réalisations</a>
     </li>
@@ -53,10 +52,10 @@
         <a class="nav-link" href="{{ path('cgu') }}">CGU</a>
     </li>
 
-    <li class="nav-item">
-        {% if app.user %}
+<li class="nav-item">
+ {% if app.user %}
         <a class="nav-link" href="{{ path('users') }}">Mon profil</a>
-        {% endif %}
+         {% endif %}
     </li>
 
     <li class="nav-item">
@@ -67,8 +66,6 @@
     {% endif %}
     </li>
 
-    
-    
 </ul>
 
 </div>
