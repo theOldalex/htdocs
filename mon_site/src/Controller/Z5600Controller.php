@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class Z5600Controller extends AbstractController
 {
     /**
-     * @Route("/", name="z5600", methods={"GET"})
+     * @Route("/", name="z5600", methods={"GET","POST"})
      */
     public function index(Z5600Repository $z5600Repository, Request $request): Response
     {
