@@ -31,27 +31,26 @@
 
 			<div class="grix xs4 container">
 				<div class="col-xs4">
-						<h1>Profil de
-							{{ app.user.prenom }}
-							{{ app.user.nom }}</h1>
+					<h1>Profil de
+						{{ app.user.prenom }}
+						{{ app.user.nom }}</h1>
+				</div>
+				<div class="col-xs3">{{ app.user.id }}
+					<div class="col-xs1">Prénom:
 					</div>
-					<div class="col-xs3">{{ app.user.id }}
-						<div class="col-xs1">Prénom:
-						</div>
-						<div class="col-xs3">{{ app.user.prenom }}</div>
-						<div class="col-xs1">Nom:
-						</div>
-						<div class="col-xs3">{{ app.user.nom }}</div>
-						<div class="col-xs1">Email:</div>
-						<div class="col-xs3">{{ app.user.email }}</div>
-            <div>
-					<a href="{{ path('users_edit', {'id': app.user.id}) }}">Editer</a>
-          <a href="{{ path('users_delete', {'id': app.user.id}) }}">Supprimer son compte</a>
-</div>
+					<div class="col-xs3">{{ app.user.prenom }}</div>
+					<div class="col-xs1">Nom:
 					</div>
+					<div class="col-xs3">{{ app.user.nom }}</div>
+					<div class="col-xs1">Email:</div>
+					<div class="col-xs3">{{ app.user.email }}</div>
+					<div class="col-xs1">Mot de passe</div>
+					<div class="col-xs3">{{ app.user.password }}</div>
+					<div>
+						<a class="btn btn-danger btn-sm" href="{{ path('users_delete', {'id': app.user.id}) }}">Supprimer mon compte</a>
+					</div>
+				</div>
 
-
-				
 
 			</main>
 			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
