@@ -11,7 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/users/profil')]
+
 class UsersController extends AbstractController
 {
     #[Route('/', name: 'users/profil', methods: ['GET'])]
@@ -24,6 +26,7 @@ class UsersController extends AbstractController
 
 
     #[Route('/{id}/edit', name: 'users_edit', methods: ['GET', 'POST'])]
+    
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(UserType::class, $user);
@@ -41,7 +44,9 @@ class UsersController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'users_delete', methods: ['GET','POST'])]
+     
+    #[Route('/{id}', name: 'users_delete', methods: ['GET', 'POST'])]
+    
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
