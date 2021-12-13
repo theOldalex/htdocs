@@ -234,7 +234,7 @@ h1,p, article{
         
     }
 
-form {
+    .form-login-register {
   background-color: antiquewhite;
   background-image:url('https://i.picsum.photos/id/1026/4621/3070.jpg?hmac=OJ880cIneqAKIwHbYgkRZxQcuMgFZ4IZKJasZ5c5Wcw');
   background-size: cover;
