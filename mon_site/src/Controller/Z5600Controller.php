@@ -76,7 +76,7 @@ class Z5600Controller extends AbstractController
         ]);
     }
 
-    
+     
     public function delete(Request $request, Z5600 $z5600): Response
     {
         if ($this->isCsrfTokenValid('delete'.$z5600->getId(), $request->request->get('_token'))) {

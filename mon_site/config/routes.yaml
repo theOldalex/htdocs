@@ -22,3 +22,23 @@ z5600_delete:
     path: /{id}
     controller: App\Controller\Z5600Controller::delete
 
+rerng:
+    path: /rerng
+    controller: App\Controller\RERNGController::index
+
+rerng_new:
+    path: /new
+    controller: App\Controller\RERNGController::new
+
+rerng_show:
+    path: /{id}
+    controller: App\Controller\RERNGController::show
+
+rerng_edit:
+    path: /{id}/edit
+    controller: App\Controller\RERNGController::edit
+
+rerng_delete:
+    path: /{id}
+    controller: App\Controller\RERNGController::delete
+
