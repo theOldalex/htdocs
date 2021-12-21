@@ -23,7 +23,7 @@ z5600_delete:
     controller: App\Controller\Z5600Controller::delete
 
 rerng:
-    path: /rerng
+    path: /
     controller: App\Controller\RERNGController::index
 
 rerng_new:
