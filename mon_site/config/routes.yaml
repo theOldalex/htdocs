@@ -1,3 +1,44 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+z5600:
+    path: /z5600
+    controller: App\Controller\Z5600Controller::index
+
+z5600_new:
+    path: /new
+    controller: App\Controller\Z5600Controller::new
+
+z5600_show:
+    path: /{id}
+    controller: App\Controller\Z5600Controller::show
+
+z5600_edit:
+    path: /{id}/edit
+    controller: App\Controller\Z5600Controller::edit
+
+z5600_delete:
+    path: /{id}
+    controller: App\Controller\Z5600Controller::delete
+
+rerng:
+    path: /
+    controller: App\Controller\RERNGController::index
+
+rerng_new:
+    path: /new
+    controller: App\Controller\RERNGController::new
+
+rerng_show:
+    path: /{id}
+    controller: App\Controller\RERNGController::show
+
+rerng_edit:
+    path: /{id}/edit
+    controller: App\Controller\RERNGController::edit
+
+rerng_delete:
+    path: /{id}
+    controller: App\Controller\RERNGController::delete
+
