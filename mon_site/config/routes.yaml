@@ -42,3 +42,7 @@ rerng_delete:
     path: /{id}
     controller: App\Controller\RERNGController::delete
 
+dashboard:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
+

@@ -8,12 +8,17 @@ use App\Repository\RERNGRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
 
 
 
 class RERNGController extends AbstractController
 {
     
+    /**
+     * @Route("/rerng", name="rerng", methods={"GET"})
+     */
     public function index(RERNGRepository $rERNGRepository): Response
     {
         return $this->render('rerng/rerng.html.twig', [
@@ -22,6 +27,9 @@ class RERNGController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/new", name="rerng_new", methods={"GET","POST"})
+     */
     public function new(Request $request): Response
     {
         $rERNG = new RERNG();
@@ -44,6 +52,9 @@ class RERNGController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/{id}", name="rerng_show", methods={"GET"})
+     */
     public function show(RERNG $rERNG): Response
     {
         return $this->render('rerng/show.html.twig', [
@@ -51,7 +62,9 @@ class RERNGController extends AbstractController
         ]);
     }
 
-    
+    /**
+     * @Route("/{id}/edit", name="rerng_edit", methods={"GET","POST"})
+     */
     public function edit(Request $request, RERNG $rERNG): Response
     {
         $form = $this->createForm(RERNGType::class, $rERNG);
@@ -69,7 +82,9 @@ class RERNGController extends AbstractController
         ]);
     }
 
-   
+   /**
+     * @Route("/{id}", name="rerng_delete", methods={"POST"})
+     */
     public function delete(Request $request, RERNG $rERNG): Response
     {
         if ($this->isCsrfTokenValid('delete'.$rERNG->getId(), $request->request->get('_token'))) {
