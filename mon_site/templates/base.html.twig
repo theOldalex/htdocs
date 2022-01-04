@@ -7,109 +7,65 @@
 			<div class="jumbotron">
 				<a href="{{ path('home') }}"><img src="{{ asset('/logo.PNG') }}" class="rounded-circle shadow p-3 mb-5 bg-white" alt="logo 91xwriter"></a>
 				{% if app.user %}
-				<div class="alert alert-success" role="alert">
-  				Vous vous etes connecté avec succès !
-				   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    <span aria-hidden="true">&times;</span>
-				</div>
-				{% endif %}
-				<h1 class="display-4">91xwriter - Alexandre Diakité</h1>
-				<p class="lead">Bonjour, bienvenue sur la version beta de mon site internet.</p>
-				<hr class="my-4">
-				<p>
-					Je suis Alexandre Diakité, photographe amateur, passionné par les transports en commun.
-					<br>
-					J'ai commencé à partager mes photos sur Instagram en 2019 pour donner une autre vision des transports
-											                aux gens,
-					<br>
-					ce site internet reflète mon évolution dans les prises de photos depuis mes débuts et sera présenter
-											                pour l'examen
-											                final de ma formation de Développeur Web.
+					<div class="alert alert-success" role="alert">
+						Vous vous etes connecté avec succès !
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</div>
+					{% endif %}
+					<h1 class="display-4">91xwriter - Alexandre Diakité</h1>
+					<p class="lead">Bonjour, bienvenue sur la version beta de mon site internet.</p>
+					<hr class="my-4">
+					<p>
+						Je suis Alexandre Diakité, photographe amateur, passionné par les transports en commun.
+						<br>
+						J'ai commencé à partager mes photos sur Instagram en 2019 pour donner une autre vision des transports
+																																									                aux gens,
+						<br>
+						ce site internet reflète mon évolution dans les prises de photos depuis mes débuts et sera présenter
+																																									                pour l'examen
+																																									                final de ma formation de Développeur Web.
 
-				</p>
-				<a class="btn btn-warning btn-lg" href="#mecontacter" role="button">Me contacter</a>
-			</div><!-- Carousel --><main>
+					</p>
+					<a class="btn btn-warning btn-lg" href="#mecontacter" role="button">Me contacter</a>
+				</div><!-- Carousel --><main>
 
-				<div id="carousel" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#carousel" data-slide-to="1" class="active"></li>
-						<li data-target="#carousel" data-slide-to="2"></li>
-						<li data-target="#carousel" data-slide-to="3"></li>
-						<li data-target="#carousel" data-slide-to="4"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="{{ asset('/rerng_juvisy.jpg') }}" class="d-block w-100" alt="sample">
+					<div id="carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel" data-slide-to="1" class="active"></li>
+							<li data-target="#carousel" data-slide-to="2"></li>
+							<li data-target="#carousel" data-slide-to="3"></li>
+							<li data-target="#carousel" data-slide-to="4"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="{{ asset('/rerng_juvisy.jpg') }}" class="d-block w-100" alt="sample">
+							</div>
+							<div class="carousel-item">
+								<img src="{{ asset('/z5600_3.jpeg') }}" class="d-block w-100" alt="sample">
+							</div>
+							<div class="carousel-item">
+								<img src="{{ asset('/z20500.jpeg') }}" class="d-block w-100" alt="sample">
+							</div>
+							<div class="carousel-item">
+								<img src="{{ asset('/z5600_4.jpeg') }}" class="d-block w-100" alt="sample">
+							</div>
+							<div class="carousel-item">
+								<img src="{{ asset('/regio2n.jpg') }}" class="d-block w-100" alt="sample">
+							</div>
 						</div>
-						<div class="carousel-item">
-							<img src="{{ asset('/z5600_3.jpeg') }}" class="d-block w-100" alt="sample">
-						</div>
-						<div class="carousel-item">
-							<img src="{{ asset('/z20500.jpeg') }}" class="d-block w-100" alt="sample">
-						</div>
-						<div class="carousel-item">
-							<img src="{{ asset('/z5600_4.jpeg') }}" class="d-block w-100" alt="sample">
-						</div>
-						<div class="carousel-item">
-							<img src="{{ asset('/regio2n.jpg') }}" class="d-block w-100" alt="sample">
-						</div>
+						<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Précedent</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Suivant</span>
+						</a>
 					</div>
-					<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Précedent</span>
-					</a>
-					<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Suivant</span>
-					</a>
-				</div>
-			</header><!-- Formulaire de contact --><section class="py-5" id="formsection">
-				<h2 class="text-center" id="mecontacter">Me contacter</h2>
-				<div class="container">
-					<div class="row justify-content-center">
-						<form action="#" method="POST" enctype="multipart/form-data">
+				</header>
 
-							<div class="form-row">
-								<div class="form-group col">
-									<label for="name">Nom</label>
-									<input type="text" class="form-control name=" name" id=" name" required>
-																																														                                                        </div>
-										
-																																														                                                                        <div class=" form-group col">
-									<label for="firstname">Prénom</label>
-									<input type="text" class="form-control  name=" firstname" id=" firstname" required>
-																																														                                                                            </div>
-										
-																																														                                                            <div class=" form-group col">
-									<label for="email">E-mail</label>
-									<input type="email" class="form-control name=" email" id=" email" required>
-																																														                                                                    </div>
-										
-										
-										
-										
-										
-																																														                                                                      <div class=" custom-file">
-
-									<input type="file" class="custom-file-input" id="customFile">
-									<label class="custom-file-label" for="customFile">Choose file</label>
-									<div class="py-2"></div>
-									<input type="submit" class="btn btn-warning btn-lg" value="Envoyer">
-
-								</div>
-
-
-							</form>
-
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
+			</main>
+			{% include 'footer.html' %}{% include 'espace_utilisateur.html.twig' %}
 	</body>
-</html></main>
-
-{% include 'footer.html' %}
-
-{% include 'espace_utilisateur.html.twig' %}
+</html>

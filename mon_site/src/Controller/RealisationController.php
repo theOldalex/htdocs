@@ -10,13 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/realisation")
- */
+
 class RealisationController extends AbstractController
 {
     /**
-     * @Route("/", name="realisation", methods={"GET"})
+     * @Route("/realisation", name="realisation", methods={"GET"})
      */
     public function index(RealisationRepository $realisationRepository): Response
     {
