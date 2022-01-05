@@ -42,6 +42,7 @@ class Contact
      */
     private $fichier;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,4 +107,5 @@ class Contact
 
         return $this;
     }
+
 }
