@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-
+use App\Entity\Realisation;
 use App\Entity\RERNG;
 use App\Entity\User;
 use App\Entity\Z5600;
@@ -40,6 +40,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fa-solid fa fa-user', User::class);
         yield MenuItem::linkToCrud('Z5600', 'fa fa-train', Z5600::class);
         yield MenuItem::linkToCrud('RERNG', 'fa fa-train', RERNG::class);
+        yield MenuItem::linkToCrud('Réalisations', 'fa fa-file-image', Realisation::class);
         
     }
 }

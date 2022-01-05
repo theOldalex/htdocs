@@ -34,6 +34,7 @@ class UsersController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+           
 
             return $this->redirectToRoute('users/profil', [], Response::HTTP_SEE_OTHER);
         }
