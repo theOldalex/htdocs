@@ -28,19 +28,7 @@ li{
     background-color: #ffc107;
 }
 
-#contact{
 
-position:absolute;
-
-bottom:0;
-
-width:100%;
-
-padding-top:50px;
-
-height:200px;
-
-}
 
 #faq{
 
@@ -113,17 +101,8 @@ h1,p, article{
     
     }
 
-    .darkmode--activated p, .darkmode--activated li {
-        color: rgb(0, 0, 0);
-      }
+   
       
-      .button {
-        isolation:isolate;
-      }
-      
-      .darkmode--activated .logo {
-        mix-blend-mode: difference;
-      }
 
 
     .container{
@@ -242,9 +221,46 @@ h1,p, article{
   background-attachment: fixed;
   background-repeat: no-repeat;
   padding: 8% 5% ;
+    }
+
+.contact-form {
+    padding: 8% 5% ;
+
+}
+
+.contact-form form {
+    width: 100%;
+    margin-bottom: 0%;
+    
+}
+
+#contact-form {
+    padding: 8% 5% ;
+    position: relative;
+    width: 100%;
+    height: calc(125vh - 90px);
+    
+}
+
+.form-contact {
+
+color: white;
+background-color: antiquewhite;
+background-image:url('https://imagizer.imageshack.com/img924/9959/uIhSeE.jpg');
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+padding: 8% 5% ;
   
 }
 
+.contact-page-container{
+    position: relative;
+    width: 100%;
+    height: calc(125vh - 90px);
+
+}
 
 /* Barre de recherche  */
 
