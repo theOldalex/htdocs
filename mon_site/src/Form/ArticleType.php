@@ -27,7 +27,11 @@ class ArticleType extends AbstractType
                 'label'=> 'Date de publication: '
                 
             ])
-            ->add('auteur')
+            ->add('auteur', EntityType::class, [
+               'class' => Auteur::class,
+               'choice_label' => 'prenom'
+               
+            ])
             ->add('commentaire', TextareaType::class)
         ;
     }
