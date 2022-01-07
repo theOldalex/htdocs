@@ -11,8 +11,9 @@
 
 
 <h1 class="text-center py-4">{{article.titre}}</h1>
-  <img src="{{ article.image }}">
-  <div class="container">
+<div class="container">
+  <img src="{{ article.image }}" width="100%" height="600">
+  
     <p class="text-center py-4">{{article.contenu|raw}}</p>>
     <p class="text-center py-4">Publié le {{article.datePublication ? article.datePublication|date('d-m-Y')}}</p>
   </div>

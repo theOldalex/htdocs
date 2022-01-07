@@ -23,7 +23,7 @@ class ArticleType extends AbstractType
                 'label'=> 'Date de publication: '
                 
             ])
-            ->add('commentaire')
+            ->add('auteur')
         ;
     }
 
