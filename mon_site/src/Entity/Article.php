@@ -28,7 +28,7 @@ class Article
     private $contenu;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string")
      */
     private $image;
 
@@ -42,10 +42,12 @@ class Article
      */
     private $commentaire;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Auteur::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Auteur;
+
 
     public function getTitre(): ?string
     {
@@ -106,4 +108,17 @@ class Article
 
         return $this;
     }
+
+    public function getAuteur(): ?Auteur
+    {
+        return $this->Auteur;
+    }
+
+    public function setAuteur(?Auteur $Auteur): self
+    {
+        $this->Auteur = $Auteur;
+
+        return $this;
+    }
+
 }

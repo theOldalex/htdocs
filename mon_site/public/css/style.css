@@ -28,19 +28,7 @@ li{
     background-color: #ffc107;
 }
 
-#contact{
 
-position:absolute;
-
-bottom:0;
-
-width:100%;
-
-padding-top:50px;
-
-height:200px;
-
-}
 
 #faq{
 
@@ -113,17 +101,8 @@ h1,p, article{
     
     }
 
-    .darkmode--activated p, .darkmode--activated li {
-        color: rgb(0, 0, 0);
-      }
+   
       
-      .button {
-        isolation:isolate;
-      }
-      
-      .darkmode--activated .logo {
-        mix-blend-mode: difference;
-      }
 
 
     .container{
@@ -234,7 +213,7 @@ h1,p, article{
         
     }
 
-form {
+    .form-login-register {
   background-color: antiquewhite;
   background-image:url('https://i.picsum.photos/id/1026/4621/3070.jpg?hmac=OJ880cIneqAKIwHbYgkRZxQcuMgFZ4IZKJasZ5c5Wcw');
   background-size: cover;
@@ -242,9 +221,46 @@ form {
   background-attachment: fixed;
   background-repeat: no-repeat;
   padding: 8% 5% ;
+    }
+
+.contact-form {
+    padding: 8% 5% ;
+
+}
+
+.contact-form form {
+    width: 100%;
+    margin-bottom: 0%;
+    
+}
+
+#contact-form {
+    padding: 8% 5% ;
+    position: relative;
+    width: 100%;
+    height: calc(125vh - 90px);
+    
+}
+
+.form-contact {
+
+color: white;
+background-color: antiquewhite;
+background-image:url('https://zupimages.net/up/22/01/q746.jpg');
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+padding: 8% 5% ;
   
 }
 
+.contact-page-container{
+    position: relative;
+    width: 100%;
+    height: calc(125vh - 90px);
+
+}
 
 /* Barre de recherche  */
 
