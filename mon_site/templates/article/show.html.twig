@@ -9,22 +9,22 @@
 
 {% block body %}
 
-<div class="container">
-<h1>{{article.titre}}</h1>
-    <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{article.titre}}</h5>
-    <p class="card-text">{{article.contenu}}</p>
-    <p class="card-text">Publié le {{article.datePublication ? article.datePublication|date('Y-m-d') : '' }}</p>
-  </div>
-</div>
-    <a class="btn btn-secondary" href="{{ path('article') }}">Retourner à la liste</a>
 
-    <a class="btn btn-info" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+<h1 class="text-center py-4">{{article.titre}}</h1>
+  <img src="{{ article.image }}">
+  <div class="container">
+    <p class="text-center py-4">{{article.contenu|raw}}</p>>
+    <p class="text-center py-4">Publié le {{article.datePublication ? article.datePublication|date('d-m-Y')}}</p>
+  </div>
+
+<div class="container py-4">
+    <a class="btn btn-secondary btn-sm" href="{{ path('article') }}">Retourner à la liste</a>
+
+    <a class="btn btn-info btn-sm" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
 
     {{ include('article/_delete_form.html.twig') }}
     </div>
+    
 {% endblock %}
 
 
