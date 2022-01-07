@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
+#[Route('/auteur')]
 class AuteurController extends AbstractController
 {
-    #[Route('/auteur', name: 'auteur', methods: ['GET'])]
+    #[Route('/', name: 'auteur', methods: ['GET'])]
     public function index(AuteurRepository $auteurRepository): Response
     {
         return $this->render('auteur/index.html.twig', [

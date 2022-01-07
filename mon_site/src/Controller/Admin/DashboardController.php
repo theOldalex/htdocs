@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Auteur;
 use App\Entity\Realisation;
 use App\Entity\RERNG;
 use App\Entity\User;
@@ -38,6 +39,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Users', 'fa-solid fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Auteurs', 'fa-solid fa fa-user', Auteur::class);
         yield MenuItem::linkToCrud('Z5600', 'fa fa-train', Z5600::class);
         yield MenuItem::linkToCrud('RERNG', 'fa fa-train', RERNG::class);
         yield MenuItem::linkToCrud('Réalisations', 'fa fa-file-image', Realisation::class);
