@@ -1,0 +1,23 @@
+<html>
+	{% include 'head.html' %}
+	<body>
+
+		<header>
+			{% include 'nav.html.twig' %}
+
+		</header>
+		{% block body %}
+			
+			
+			<div class="form-contact">
+				<div class="container-fluid py-4" id="contact-form">
+					<div class="row">
+						<div class="col-xs-12 col-md-4 offset-md-4">
+					<h1 class="py-4">Me contacter</h1>
+
+							{{form(form)}}{% endblock %}
+
+
+						</body>
+
+					</html>
