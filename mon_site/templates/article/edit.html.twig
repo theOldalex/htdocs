@@ -1,13 +1,22 @@
+<html>
+	{% include 'head.html' %}
+	<body>
 
+		<header>
+			{% include 'nav.html.twig' %}
+		</header>
 
-{% block title %}Edit Article{% endblock %}
+		{% block title %}{% endblock %}
 
-{% block body %}
-    <h1>Edit Article</h1>
+		{% block body %}
+			<h1>Editer un article</h1>
 
-    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+			{{ include('article/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('article') }}">back to list</a>
+			<a href="{{ path('article') }}">Retourner à la liste</a>
 
-    {{ include('article/_delete_form.html.twig') }}
-{% endblock %}
+			{{ include('article/_delete_form.html.twig') }}
+		{% endblock %}
+
+	</body>
+</html>

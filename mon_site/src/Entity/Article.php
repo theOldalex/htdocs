@@ -48,6 +48,10 @@ class Article
      */
     private $Auteur;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getTitre(): ?string
     {
@@ -121,5 +125,10 @@ class Article
         return $this;
     }
 
+    public function __toString(){
+        
+        return $this->prenom;
+
+    }
 
 }
