@@ -9,14 +9,18 @@
 		{% block title %}{% endblock %}
 
 		{% block body %}
-			<h1>Editer un article</h1>
+			<div class="container">
+<div class="form-group">
+    <h1 class="py-4">Editer un article</h1>
 
-			{{ include('article/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+    {{ include('article/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+</div>
+<div class="form-group">
+    <a class="btn btn-secondary btn-sm" href="{{ path('article') }}">Retourner à la liste</a>
+    </div>
 
-			<a href="{{ path('article') }}">Retourner à la liste</a>
-
-			{{ include('article/_delete_form.html.twig') }}
-		{% endblock %}
-
-	</body>
-</html>
+    {{ include('article/_delete_form.html.twig') }}
+    </div>
+		</body>
+	</html>
+{% endblock %}
