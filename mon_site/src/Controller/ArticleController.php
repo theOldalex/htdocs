@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comments;
 use App\Form\ArticleType;
+use App\Form\CommentsType;
 use App\Repository\ArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/article")
@@ -51,12 +53,28 @@ class ArticleController extends AbstractController
     /**
      * @Route("/{id}", name="article_show", methods={"GET"})
      */
-    public function show(Article $article): Response
+    public function show(Article $article, Request $request): Response
     {
+
+        $comment = new Comments();
+        
+        $commentForm = $this->createForm(CommentsType::class, $comment);
+
+        $commentForm->handleRequest($request);
+        
+        if ($commentForm->isSubmitted() && $commentForm->isValid()){
+            dd($commentForm);
+        }
+
         return $this->render('article/show.html.twig', [
             'article' => $article,
+            'commentForm' => $commentForm->createView()
+           
+            
         ]);
     }
+
+    
 
     /**
      * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
@@ -91,4 +109,6 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('article', [], Response::HTTP_SEE_OTHER);
     }
+
+   
 }
