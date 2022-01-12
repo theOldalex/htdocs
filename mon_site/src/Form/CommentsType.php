@@ -5,13 +5,14 @@ namespace App\Form;
 
 use App\Entity\Comments;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentsType extends AbstractType
 {
@@ -19,20 +20,25 @@ class CommentsType extends AbstractType
     {
         $builder
         ->add('nickname', TextType::class,[
-            'label' => 'Pseudo',
+            'label' => 'Pseudo:',
             'attr'=> [
                 'class' => 'form-control'
         ]])
             ->add('email', EmailType::class,[
-                'label' => 'Adresse e-mail',
+                'label' => 'Adresse e-mail:',
                 'attr'=> [
                     'class' => 'form-control'
             ]])
-            ->add('content', CKEditorType::class,[
+            ->add('content', TextareaType::class,[
                 'label' => 'Commentaire:',
                 'attr'=> [
                     'class' => 'form-control'
             ]])
+            ->add('created_at', DateType::class,[
+                'label' => 'Date:',
+                'widget'=> 'single_text',
+                'input_format'=> 'd/m/Y'
+            ])
             ->add('parentid', HiddenType::class,[
                 'mapped' => false
             ])

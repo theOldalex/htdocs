@@ -56,14 +56,21 @@ class ArticleController extends AbstractController
     public function show(Article $article, Request $request): Response
     {
 
-        $comment = new Comments();
+        $comments = new Comments();
         
-        $commentForm = $this->createForm(CommentsType::class, $comment);
+        $commentForm = $this->createForm(CommentsType::class, $comments);
 
         $commentForm->handleRequest($request);
-        
         if ($commentForm->isSubmitted() && $commentForm->isValid()){
-            dd($commentForm);
+            $comments = $commentForm->getData();
+            dd($comments);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comments);
+            $entityManager->flush();
+
+            return new Response('Test');
+            return $this->redirectToRoute('article');
+
         }
 
         return $this->render('article/show.html.twig', [
