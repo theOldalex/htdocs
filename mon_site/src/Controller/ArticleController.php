@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @Route("/article")
@@ -18,7 +19,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/", name="article", methods={"GET"})
+     * @Route("/", name="article_", methods={"GET"})
      */
     public function index(ArticleRepository $articleRepository): Response
     {
@@ -65,13 +66,13 @@ class ArticleController extends AbstractController
             $comments->setArticle($article);
             $comments->setCreatedAt(new \DateTime('now'));
             $comments = $commentForm->getData();
-            dd($comments);
+            //dd($comments);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comments);
             $entityManager->flush();
 
             return new Response('Test');
-            return $this->redirectToRoute('article');
+            return $this->redirectToRoute('article_show');
 
         }
 
@@ -104,6 +105,50 @@ class ArticleController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    /**
+     * @Route("/favoris/new/{id}", name="new_favoris")
+     */
+    public function addFavori(ArticleRepository $article)
+    {
+        
+        if(!$article){
+            throw new NotFoundHttpException('Pas d\'article trouvé');
+        }
+        $article->addFavori($this->getUser());
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($article);
+        $entityManager->flush();
+        
+        return $this->render('app_home');
+        }
+
+     /**
+     * @Route("/favoris/delete/{id}", name="delete_favoris")
+     */
+    public function removeFavori(ArticleRepository $article)
+    {
+        
+        if(!$article){
+            throw new NotFoundHttpException('Pas d\'article trouvé');
+        }
+        $article->removeFavori($this->getUser());
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($article);
+        $entityManager->flush();
+        
+        return $this->render('app_home');
+        }
+
+    
+    
+    
+
+    
+    
+
 
     /**
      * @Route("/{id}", name="article_delete", methods={"POST"})

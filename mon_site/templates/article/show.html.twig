@@ -1,50 +1,76 @@
 <html>
-{% include 'head.html' %}
+	{% include 'head.html' %}
 	<body>
 
 		<header>
 			{% include 'nav.html.twig' %}
-            </header>
-{% block title %}{% endblock %}
 
-{% block body %}
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
+		</header>
+		{% block title %}{% endblock %}
 
-<h1 class="text-center py-4">{{article.titre}}</h1>
-<div class="container">
-  <img src="{{ article.image }}" width="100%" height="600">
-  
-    <p class="text-center py-4">{{article.contenu|raw}}</p>>
-    <p class="text-center py-4">Publié le {{article.datePublication ? article.datePublication|date('d-m-Y')}} par {{ article.auteur.prenom }}</p>
-  
-
-  <h1 class="text-center py-4">Tous les commentaires</h1>
+		{% block body %}
 
 
+			<h1 class="text-center py-4">{{article.titre}}
+				<div>
+					{% if is_granted('ROLE_ADMIN') %}
+						{% for favoris in article.favoris %}
+							{% if favoris.id is same as app.user.id %}
+								<i class="fas fa-heart"></i>
+							{% else %}
+								<a href="{{ path('new_favoris', {id: article.id}) }}"<i class="far fa-heart"></i></a>
+							{% endif %}
+						{% else %}
+							<a href="{{ path('new_favoris', {id: article.id}) }}"<i class="far fa-heart"></i></a>
+						{% endfor %}
 
-{% if app.user %}
-    <h2 class="text-center py-4">Ajouter un commentaire</h2>
-    {{ form(commentForm) }}
- {% else %}
-    <p class="text-center py-4">Vous devez vous <a href="{{ path('app_login') }}">connecter</a> pour laisser un commentaire</p>
- {% endif %}
-</div>
-
-<div class="container py-4">
-    <a class="btn btn-secondary btn-sm" href="{{ path('article') }}">Retourner à la liste</a>
- {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-info btn-sm" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
-
-    {{ include('article/_delete_form.html.twig') }}
-
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=61deb4ad5b6879001a598b39&product=inline-share-buttons' async='async'></script>
-    <div class="sharethis-inline-share-buttons"></div>
-    {% endif %}
-    </div>
-
-  
-{% endblock %}
+					{% else %}
+						<i class="far fa-heart"></i>
+					{% endif %}
 
 
-</body>
+				</div>
+			</h1>
+			<div class="container">
+				<img src="{{ article.image }}" width="100%" height="600">
+
+				<p class="text-center py-4">{{article.contenu|raw}}</p>>
+				<p class="text-center py-4">Publié le
+					{{article.datePublication ? article.datePublication|date('d-m-Y')}}
+					par
+					{{ article.auteur.prenom }}</p>
+
+
+				<h1 class="text-center py-4">Tous les commentaires</h1>
+
+
+				{% if app.user %}
+					<h2 class="text-center py-4">Ajouter un commentaire</h2>
+					{{ form(commentForm) }}
+						{% else %}
+							<p class="text-center py-4">Vous devez vous
+								<a href="{{ path('app_login') }}">connecter</a>
+								pour laisser un commentaire</p>
+					{% endif %}
+				</div>
+
+				<div class="container py-4">
+					<a class="btn btn-secondary btn-sm" href="{{ path('article_') }}">Retourner à la liste</a>
+					{% if is_granted('ROLE_ADMIN') %}
+						<a class="btn btn-info btn-sm" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
+						{{ include('article/_delete_form.html.twig') }}
+
+						<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=61deb4ad5b6879001a598b39&product=inline-share-buttons' async='async'></script>
+						<div class="sharethis-inline-share-buttons"></div>
+
+
+					{% endif %}
+				</div>
+
+
+			{% endblock %}
+		</body>
+	</body>
 </html>
