@@ -62,6 +62,8 @@ class ArticleController extends AbstractController
 
         $commentForm->handleRequest($request);
         if ($commentForm->isSubmitted() && $commentForm->isValid()){
+            $comments->setArticle($article);
+            $comments->setCreatedAt(new \DateTime('now'));
             $comments = $commentForm->getData();
             dd($comments);
             $entityManager = $this->getDoctrine()->getManager();
