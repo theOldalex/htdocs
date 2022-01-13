@@ -19,7 +19,6 @@
 			</div>
 			<a href="{{ path('home') }}" class="sidenav-link">Accueil</a>
 			<a href="{{ path('users/profil') }}" class="sidenav-link active">Mon profil</a>
-			<a href="#" class="sidenav-link">Link 3</a>
 			<a href="#" class="sidenav-link">Se déconnecter</a>
 		</div>
 
@@ -51,8 +50,8 @@
 					<div class="col-xs1">Email:</div>
 					<div class="col-xs3">{{ app.user.email }}</div>
 					<div class="col-xs4">
-						<a class="btn btn-primary" href="{{ path('profil_edit')}}">Modifier mon profil</a>
-						<a class="btn btn-primary" href="">Modifier mon mot de passe</a>
+						<a class="btn btn-primary" href="{{ path('profil_edit') }}">Modifier mon profil</a>
+						<a class="btn btn-primary" href="{{ path('pass_edit') }}">Modifier mon mot de passe</a>
 					</div>
 				</div>
 
