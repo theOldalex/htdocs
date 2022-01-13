@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditProfileType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -57,4 +58,29 @@ class UsersController extends AbstractController
 
         return $this->redirectToRoute('users_delete', [], Response::HTTP_SEE_OTHER);
     }
+
+     
+     #[Route("/users/profil/edit", name:"profil_edit")]
+    
+    public function editProfile(Request $request)
+    {
+        
+        $user = $this->getUser();
+        $form = $this->createForm(EditProfileType::class, $this->getUser());
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('message', 'Votre profil a bien été mis à jour !');
+            return $this->redirectToRoute('users/profil', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('users/editprofile.html.twig', [
+            'form' => $form->createView(),
+        ]);
+}
+
 }
