@@ -109,25 +109,26 @@ class ArticleController extends AbstractController
     /**
      * @Route("/favoris/new/{id}", name="new_favoris")
      */
-    public function addFavori(ArticleRepository $article)
+    public function addFavori(Article $article)
     {
         
         if(!$article){
             throw new NotFoundHttpException('Pas d\'article trouvé');
         }
         $article->addFavori($this->getUser());
+        
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($article);
         $entityManager->flush();
         
-        return $this->render('app_home');
+        return $this->redirectToRoute('home');
         }
 
      /**
      * @Route("/favoris/delete/{id}", name="delete_favoris")
      */
-    public function removeFavori(ArticleRepository $article)
+    public function removeFavori(Article $article)
     {
         
         if(!$article){
@@ -139,7 +140,7 @@ class ArticleController extends AbstractController
         $entityManager->persist($article);
         $entityManager->flush();
         
-        return $this->render('app_home');
+        return $this->redirectToRoute('home');
         }
 
     
