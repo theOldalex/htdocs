@@ -11,14 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
-#[Route('/users/profil')]
 
 class UsersController extends AbstractController
 {
-    #[Route('/', name: 'users/profil', methods: ['GET'])]
+    #[Route('users', name: 'users', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('users/users.html.twig', [
@@ -38,7 +37,7 @@ class UsersController extends AbstractController
             $entityManager->flush();
 
 
-            return $this->redirectToRoute('users/profil', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('users', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('users/edit.html.twig', [
@@ -61,7 +60,7 @@ class UsersController extends AbstractController
     }
 
 
-    #[Route("/users/profil/edit", name: "profil_edit")]
+    #[Route("edit/profil", name: "profil_edit")]
 
     public function editProfile(Request $request)
     {
@@ -84,8 +83,8 @@ class UsersController extends AbstractController
         ]);
     }
 
-    #[Route("/users/pass/edit", name: "pass_edit")]
-    public function editPass(Request $request, UserPasswordHasherInterface $passwordencoder)
+    #[Route("edit/pass", name: "pass_edit")]
+    public function editPass(Request $request, UserPasswordEncoderInterface $passwordencoder)
     {
         if($request->isMethod('POST')){
             $em = $this->getDoctrine()->getManager();
@@ -94,7 +93,12 @@ class UsersController extends AbstractController
             //On verifie ici si les deux mdp sont identiques avant d'encoder
 
             if($request->request->get('pass') === $request->request->get('pass2')){
-$user->setPassword($passwordencoder->encodePassword($user, $request->request->get('pass')));
+            $user->setPassword($passwordencoder->encodePassword($user, $request->request->get('pass')));
+            $em->flush();
+            $this->addFlash('message', 'Votre mot de passe a bien été mis à jour !');
+
+
+            return $this->redirectToRoute('users');
 
             }else{
                 $this->addFlash('error', 'Les deux mots de passe ne sont pas identiques !');
