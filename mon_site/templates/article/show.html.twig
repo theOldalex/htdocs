@@ -15,7 +15,7 @@
 
 			<h1 class="text-center py-4">{{article.titre}}
 				<div>
-					{% if is_granted('ROLE_ADMIN') %}
+					{% if is_granted('ROLE_USER') %}
 						{% for favoris in article.favoris %}
 							{% if favoris.id is same as app.user.id %}
 								<a href="{{ path('delete_favoris', {id: article.id}) }}"<i class="fas fa-heart" style="color:red"></i></a>
