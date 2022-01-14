@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Entity\Article;
 use App\Form\EditProfileType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -75,7 +76,7 @@ class UsersController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('message', 'Votre profil a bien été mis à jour !');
-            return $this->redirectToRoute('users/profil', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('users', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('users/editprofile.html.twig', [
@@ -108,5 +109,13 @@ class UsersController extends AbstractController
         
 
         return $this->render('users/editpass.html.twig');
+    }
+    
+    #[Route("users/favoris", name: "users_favoris")]
+    public function AfficherFavoris()
+    {
+        
+       
+        return $this->render('article/favoris.html.twig');
     }
 }

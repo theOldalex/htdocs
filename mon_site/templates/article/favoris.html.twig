@@ -31,31 +31,21 @@
 
 			{% block body %}
 				<div class="grix xs4 container">
-					{% for message in app.flashes('message') %}
-						<div class="col-xs4">
-							<div class="p-3 my-2 rounded-2 success">{{message}}</div>
-						</div>
-					{% endfor %}
 					<div class="col-xs4">
-						<h1>Profil de
+						<h1>Favoris de
 							{{ app.user.prenom }}
 							{{ app.user.nom }}</h1>
 					</div>
-					<div class="col-xs3">
-						<div class="col-xs1">Prénom:
+					{% for favoris in app.user.favoris %}
+						<div class="col-xs1">Titre :
 						</div>
-						<div class="col-xs3">{{ app.user.prenom }}</div>
-						<div class="col-xs1">Nom:
-						</div>
-						<div class="col-xs3">{{ app.user.nom }}</div>
-						<div class="col-xs1">Email:</div>
-						<div class="col-xs3">{{ app.user.email }}</div>
-						<div class="col-xs4">
-							<a class="btn shadow-1 rounded-1 small success uppercase" href="{{ path('profil_edit') }}">Modifier mon profil</a>
-							<a class="btn shadow-1 rounded-1 small warning uppercase" href="{{ path('pass_edit') }}">Modifier mon mot de passe</a>
-						</div>
+						<div class="col-xs3">{{ app.user.favoris }}</div>
+
+
 					</div>
-					
+
+
+				{% endfor %}
 
 
 			</main>
@@ -70,4 +60,4 @@
 			<script src="https://cdn.jsdelivr.net/npm/axentix@1.3.4/dist/js/axentix.min.js"></script>
 		{% endblock %}
 	</body>
-</html>
+</html></body></html>
