@@ -28,7 +28,7 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
-                <td>{{ article.contenu }}</td>
+                <td>{{ article.contenu|u.truncate(200, '...') }}</td>
                 <td>{{ article.image }}</td>
                 <td>{{ article.datePublication ? article.datePublication|date('Y-m-d') : '' }}</td>
                 <td>{{ article.auteur.prenom }}</td>
