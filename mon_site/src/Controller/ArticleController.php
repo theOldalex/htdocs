@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Images;
 use App\Entity\Article;
 use App\Entity\Comments;
 use App\Form\ArticleType;
@@ -12,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\KernelInterface;
+ 
 
 
 class ArticleController extends AbstractController
@@ -29,13 +32,27 @@ class ArticleController extends AbstractController
     /**
      * @Route("/new", name="article_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, KernelInterface $kernel): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $images = $form->get('images')->getData();
+            foreach ($images as $image) {
+                // On génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $imagesDir = $kernel->getProjectDir().'/public/uploads/images',
+                    $fichier
+                );
+
+            }
+
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
@@ -56,11 +73,11 @@ class ArticleController extends AbstractController
     {
 
         $comments = new Comments();
-        
+
         $commentForm = $this->createForm(CommentsType::class, $comments);
 
         $commentForm->handleRequest($request);
-        if ($commentForm->isSubmitted() && $commentForm->isValid()){
+        if ($commentForm->isSubmitted() && $commentForm->isValid()) {
             $comments->setArticle($article);
             $comments->setCreatedAt(new \DateTime('now'));
             $comments = $commentForm->getData();
@@ -71,18 +88,17 @@ class ArticleController extends AbstractController
 
             return new Response('Test');
             return $this->redirectToRoute('article_show');
-
         }
 
         return $this->render('article/show.html.twig', [
             'article' => $article,
             'commentForm' => $commentForm->createView()
-           
-            
+
+
         ]);
     }
 
-    
+
 
     /**
      * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
@@ -109,27 +125,27 @@ class ArticleController extends AbstractController
      */
     public function addFavori(Article $article)
     {
-        
-        if(!$article){
+
+        if (!$article) {
             throw new NotFoundHttpException('Pas d\'article trouvé');
         }
         $article->addFavori($this->getUser());
-        
+
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($article);
         $entityManager->flush();
-        
-        return $this->redirectToRoute('home');
-        }
 
-     /**
+        return $this->redirectToRoute('home');
+    }
+
+    /**
      * @Route("/favoris/delete/{id}", name="delete_favoris")
      */
     public function removeFavori(Article $article)
     {
-        
-        if(!$article){
+
+        if (!$article) {
             throw new NotFoundHttpException('Pas d\'article trouvé');
         }
         $article->removeFavori($this->getUser());
@@ -137,16 +153,16 @@ class ArticleController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($article);
         $entityManager->flush();
-        
+
         return $this->redirectToRoute('home');
-        }
+    }
 
-    
-    
-    
 
-    
-    
+
+
+
+
+
 
 
     /**
@@ -154,7 +170,7 @@ class ArticleController extends AbstractController
      */
     public function delete(Request $request, Article $article): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);
             $entityManager->flush();
@@ -162,6 +178,4 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('article', [], Response::HTTP_SEE_OTHER);
     }
-
-   
 }

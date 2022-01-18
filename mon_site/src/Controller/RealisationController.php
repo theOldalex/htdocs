@@ -11,7 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-
+/**
+     * @Route("realisation")
+     */
 class RealisationController extends AbstractController
 {
     /**
