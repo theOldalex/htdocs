@@ -153,11 +153,7 @@ class Article
         return $this;
     }
 
-    public function __toString(){
-        
-        return $this->prenom;
-
-    }
+    
 
     /**
      * @return Collection|Comments[]

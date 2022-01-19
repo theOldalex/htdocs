@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\HomeController;
 use App\Entity\User;
 use App\Entity\RERNG;
 use App\Entity\Z5600;
@@ -38,7 +39,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToUrl('Home', 'fa fa-home', "{{ path('home') }}");
         yield MenuItem::linkToCrud('Users', 'fa-solid fa fa-user', User::class);
         yield MenuItem::linkToCrud('Auteurs', 'fa-solid fa fa-user', Auteur::class);
         yield MenuItem::linkToCrud('Z5600', 'fa fa-train', Z5600::class);

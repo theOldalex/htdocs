@@ -16,11 +16,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelInterface;
  
 
-
+/**
+     * @Route("article")
+     */
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("article", name="article", methods={"GET"})
+     * @Route("", name="article", methods={"GET"})
      */
     public function index(ArticleRepository $articleRepository): Response
     {
