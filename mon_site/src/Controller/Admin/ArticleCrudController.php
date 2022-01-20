@@ -32,10 +32,10 @@ class ArticleCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads/images')
                 ->setLabel('Image'),
                 DateField::new('Date_publication'),
-            $auteur = ChoiceField::new('Auteur')
+            ChoiceField::new('Auteur')
                 ->setChoices([
-                    Auteur::class,
-                    'prenom'
+                    'class' => Auteur::class,
+                    'choices_label' => 'prenom'
                 ]),
 
                                
