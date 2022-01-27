@@ -47,7 +47,7 @@ class ArticleController extends AbstractController
                 // On génère un nouveau nom de fichier
                 $fichier = md5(uniqid()) . '.' . $image->guessExtension();
                 $image->move(
-                    $imagesDir = $kernel->getProjectDir().'/public/uploads/images',
+                    $imagesDir = $kernel->getProjectDir().'/public',
                     $fichier
                 );
 
@@ -79,9 +79,11 @@ class ArticleController extends AbstractController
         $commentForm = $this->createForm(CommentsType::class, $comments);
 
         $commentForm->handleRequest($request);
+        
+        
         if ($commentForm->isSubmitted() && $commentForm->isValid()) {
             $comments->setArticle($article);
-            $comments->setCreatedAt(new \DateTime('now'));
+            $comments->setCreatedAt(new \DateTime());
             $comments = $commentForm->getData();
             //dd($comments);
             $entityManager = $this->getDoctrine()->getManager();

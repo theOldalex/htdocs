@@ -29,14 +29,15 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('Titre'),
             TextEditorField::new('Contenu'),
             $image = ImageField::new('image')
-                ->setUploadDir('public/uploads/images')
+                ->setUploadDir('/public')
                 ->setLabel('Image'),
                 DateField::new('Date_publication'),
-            ChoiceField::new('Auteur')
-                ->setChoices([
-                    'class' => Auteur::class,
-                    'choices_label' => 'prenom'
-                ]),
+            //ChoiceField::new('Auteur')
+               // ->setChoices([
+                   // 'class' => Auteur::class,
+                   //'choices_label' => 'prenom'
+                //])
+                //->allowMultipleChoices(),
 
                                
             TextEditorField::new('Commentaire'),
