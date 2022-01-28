@@ -21,7 +21,10 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
-            ->add('image', VichImageType::class)
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+               ])
             ->add('date_publication', DateType::class, [
                 'widget'=> 'single_text',
                 'input_format'=> 'd/m/Y',

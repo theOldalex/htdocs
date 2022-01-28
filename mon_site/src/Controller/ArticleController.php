@@ -42,12 +42,12 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $images = $form->get('images')->getData();
+            $images = $form->get('image')->getData();
             foreach ($images as $image) {
                 // On génère un nouveau nom de fichier
                 $fichier = md5(uniqid()) . '.' . $image->guessExtension();
                 $image->move(
-                    $imagesDir = $kernel->getProjectDir().'/public',
+                    $imagesDir = $kernel->getProjectDir().'/public/uploads/images',
                     $fichier
                 );
 

@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 
 class ArticleCrudController extends AbstractCrudController
@@ -24,25 +25,17 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        
+
         return [
             TextField::new('Titre'),
             TextEditorField::new('Contenu'),
             $image = ImageField::new('image')
                 ->setUploadDir('/public')
                 ->setLabel('Image'),
-                DateField::new('Date_publication'),
-            //ChoiceField::new('Auteur')
-               // ->setChoices([
-                   // 'class' => Auteur::class,
-                   //'choices_label' => 'prenom'
-                //])
-                //->allowMultipleChoices(),
-
-                               
+            DateField::new('Date_publication'),
+            $auteur = AssociationField::new('Auteur'),
             TextEditorField::new('Commentaire'),
+            TextField::new('Slug'),
         ];
     }
 }
-                
-            
