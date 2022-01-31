@@ -69,9 +69,9 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="article_show", methods={"GET"})
+     * @Route("/{slug}", name="article_show", methods={"GET"})
      */
-    public function show(Article $article, Request $request): Response
+    public function show(Article $article, Request $request, $slug): Response
     {
 
         $comments = new Comments();
@@ -96,6 +96,7 @@ class ArticleController extends AbstractController
 
         return $this->render('article/show.html.twig', [
             'article' => $article,
+            'slug' => $slug,
             'commentForm' => $commentForm->createView()
 
 
