@@ -42,7 +42,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $images = $form->get('images')->getData();
+            $images = $form->get('image')->getData();
             foreach ($images as $image) {
                 // On génère un nouveau nom de fichier
                 $fichier = md5(uniqid()) . '.' . $image->guessExtension();
@@ -79,9 +79,11 @@ class ArticleController extends AbstractController
         $commentForm = $this->createForm(CommentsType::class, $comments);
 
         $commentForm->handleRequest($request);
+        
+        
         if ($commentForm->isSubmitted() && $commentForm->isValid()) {
             $comments->setArticle($article);
-            $comments->setCreatedAt(new \DateTime('now'));
+            $comments->setCreatedAt(new \DateTime());
             $comments = $commentForm->getData();
             //dd($comments);
             $entityManager = $this->getDoctrine()->getManager();
