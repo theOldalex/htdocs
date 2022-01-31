@@ -6,58 +6,80 @@
 			{% include 'nav.html.twig' %}
             </header>
 
-{% block title %}{% endblock %}
 
-{% block body %}
-<div class="container py-4">
-    <h1>Liste des articles</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Image</th>
-                <th>Date de publication</th>
-                <th>Auteur</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.contenu|u.truncate(200, '...') }}</td>
-                <td>{{ article.image }}</td>
-                <td>{{ article.datePublication ? article.datePublication|date('d-m-Y') : '' }}</td>
-                <td>{{ article.auteur.prenom }}</td>
-                
-                <td>
-                    <a class="btn btn-warning btn-sm" href="{{ path('article_show', {'id': article.id}) }}">Voir</a>
-                     {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-info btn-sm" href="{{ path('article_edit', {'id': article.id}) }}">Editer</a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">C'est vide ici !</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
- {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-success btn-sm" href="{{ path('article_new') }}">Ajouter un article +</a>
-    {% endif %}
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+
     
-{% endblock %}
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
 
 
-  
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Liste des articles</h1>
+        <p class="lead text-muted"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for article in articles %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ path('article_show', {'id': article.id}) }}"><img class="bd-placeholder-img card-img-top" src="{{ asset(article.image) }}" width="100%" height="225"></a>
+
+            <div class="card-body">
+            <h4 class="card-title">
+                {{ article.titre }} 
+            </h4>
+              <p class="card-text">Publié par {{ article.auteur }} le {{ article.datePublication ? article.datePublication|date('d-m-Y') : '' }}</p>
+              <p class="card-text">>{{ article.contenu|u.truncate(200, '...') }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a class="btn btn-sm btn-primary" href="#">Retourner en haut</a>
+    </p>
+    <p class="mb-1 py-4">2022 &copy; 91xwriter - Alexandre Diakité</p>
+  </div>
+</footer>
 
 
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-</div>
-</body>
+      
+  </body>
 </html>
