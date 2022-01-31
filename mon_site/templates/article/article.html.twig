@@ -30,7 +30,7 @@
                 <td>{{ article.titre }}</td>
                 <td>{{ article.contenu|u.truncate(200, '...') }}</td>
                 <td>{{ article.image }}</td>
-                <td>{{ article.datePublication ? article.datePublication|date('Y-m-d') : '' }}</td>
+                <td>{{ article.datePublication ? article.datePublication|date('d-m-Y') : '' }}</td>
                 <td>{{ article.auteur.prenom }}</td>
                 
                 <td>
