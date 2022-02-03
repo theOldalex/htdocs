@@ -37,6 +37,7 @@ class Auteur
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -102,4 +103,18 @@ class Auteur
     {
         return $this->prenom;
     }
+
+    public function getRealisation(): ?Realisation
+    {
+        return $this->realisation;
+    }
+
+    public function setRealisation(?Realisation $realisation): self
+    {
+        $this->realisation = $realisation;
+
+        return $this;
+    }
+
+    
 }

@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Realisation;
 use App\Form\RealisationType;
 use App\Repository\RealisationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
@@ -29,13 +30,23 @@ class RealisationController extends AbstractController
     /**
      * @Route("/new", name="realisation_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, KernelInterface $kernel): Response
     {
         $realisation = new Realisation();
         $form = $this->createForm(RealisationType::class, $realisation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $photos = $form->get('photo')->getData();
+            foreach ($photos as $photo) {
+                // On génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $photo->guessExtension();
+                $photo->move(
+                    $imagesDir = $kernel->getProjectDir().'/public/uploads/images',
+                    $fichier
+                );
+
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($realisation);
             $entityManager->flush();

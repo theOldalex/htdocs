@@ -51,10 +51,6 @@ class Article
      */
     private $date_publication;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $commentaire;
 
     /**
      * @ORM\ManyToOne(targetEntity=Auteur::class, inversedBy="articles")
@@ -140,17 +136,6 @@ class Article
         return $this;
     }
 
-    public function getCommentaire(): ?string
-    {
-        return $this->commentaire;
-    }
-
-    public function setCommentaire(string $commentaire): self
-    {
-        $this->commentaire = $commentaire;
-
-        return $this;
-    }
 
     public function getAuteur(): ?Auteur
     {

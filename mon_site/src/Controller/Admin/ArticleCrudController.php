@@ -6,13 +6,14 @@ use App\Entity\Auteur;
 use App\Entity\Article;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 
 class ArticleCrudController extends AbstractCrudController
@@ -34,7 +35,6 @@ class ArticleCrudController extends AbstractCrudController
                 ->setLabel('Image'),
             DateField::new('Date_publication'),
             $auteur = AssociationField::new('Auteur'),
-            TextEditorField::new('Commentaire'),
             TextField::new('Slug'),
         ];
     }
