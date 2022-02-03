@@ -12,11 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-#[Route('/users/profil')]
+
 
 class UsersController extends AbstractController
 {
-    #[Route('/', name: 'users/profil', methods: ['GET'])]
+    #[Route('users', name: 'users', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('users/users.html.twig', [
