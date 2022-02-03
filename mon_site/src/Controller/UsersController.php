@@ -117,5 +117,6 @@ class UsersController extends AbstractController
         
        
         return $this->render('article/favoris.html.twig');
+       
     }
 }
