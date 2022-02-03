@@ -1,0 +1,39 @@
+<html>
+	{% include 'head.html' %}
+	<body class="layout with-sidebar">
+
+		<header>
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@1.3.4/dist/css/axentix.min.css">
+
+
+		</header>
+
+		{% block body %}
+			<div class="grix xs4 container">
+            {% for message in app.flashes('error') %}
+			<div class="col-xs4">
+			<div class="p-3 my-2 rounded-2 error">{{message}}</div>
+            {% endfor %}
+				<div class="col-xs4">
+					<h1>Modification du mot de passe de
+						{{ app.user.prenom }}
+						{{ app.user.nom }}</h1>
+					<form action="" method="post">
+						<div class="form-field">
+							<label for="pass">Mot de passe:</label>
+							<input type="password" id="pass" name="pass" class="form-control rounded-1"/>
+						</div>
+                        <div class="form-field">
+							<label for="pass2">Confirmer le mot de passe:</label>
+							<input type="password" id="pass2" name="pass2" class="form-control rounded-1"/>
+						</div>
+<button class="btn shadow-1 rounded-1 blue">Envoyer</button>
+					</form>
+				</div>
+
+			</div>
+		{% endblock %}
+
+	</body>
+</html>
