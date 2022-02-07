@@ -62,16 +62,6 @@
             </h4>
               <p class="card-text">Publié par {{ realisation.auteur }} le {{ realisation.datePublication ? realisation.datePublication|date('d-m-Y') : '' }}</p>
               <p class="card-text">>{{ realisation.descriptionImage }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                   <a class="btn btn-sm btn-outline-warning" href="{{ path('realisation_show', {'id': realisation.id}) }}">Voir</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-sm btn-outline-info" href="{{ path('realisation_edit', {'id': realisation.id}) }}">Editer</a>
-                    <a class="btn btn-sm btn-outline-success" href="{{ path('realisation_new', {'id': realisation.id}) }}">Ajouter +</a>
-                    {% endif %}
-
-                </div>
-              </div>
             </div>
           </div>
         {% endfor %}
