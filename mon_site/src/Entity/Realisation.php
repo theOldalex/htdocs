@@ -60,11 +60,6 @@ class Realisation
     private $slug;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $auteur;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Auteur::class, inversedBy="realisations")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -143,18 +138,17 @@ class Realisation
         return $this->slug;
     }
 
-    public function getAuteur(): ?string
+    public function getAuteur(): ?Auteur
     {
-        return $this->auteur;
+        return $this->Auteur;
     }
 
-    public function setAuteur(string $auteur): self
+    public function setAuteur(?Auteur $Auteur): self
     {
-        $this->auteur = $auteur;
+        $this->Auteur = $Auteur;
 
         return $this;
     }
-
     
 
 }

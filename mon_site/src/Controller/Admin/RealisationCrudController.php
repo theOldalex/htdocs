@@ -23,7 +23,7 @@ class RealisationCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            AssociationField::new('Auteur'),
+            $auteur = AssociationField::new('Auteur'),
             TextField::new('nom_image'),
             DateField::new('Date_publication'),
             TextEditorField::new('description_image'),

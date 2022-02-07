@@ -133,7 +133,7 @@ class Auteur
         if ($this->realisations->removeElement($realisation)) {
             // set the owning side to null (unless already changed)
             if ($realisation->getAuteur() === $this) {
-                $realisation->setAuteur('null');
+                $realisation->setAuteur(null);
             }
         }
 
