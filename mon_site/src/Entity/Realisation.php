@@ -27,11 +27,6 @@ class Realisation
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $auteur;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $nom_image;
 
     /**
@@ -65,31 +60,22 @@ class Realisation
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=Auteur::class, mappedBy="realisation", orphanRemoval=true)
+     * @ORM\Column(type="string", length=255)
+     */
+    private $auteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Auteur::class, inversedBy="realisations")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $Auteur;
-
-    public function __construct()
-    {
-        $this->Auteur = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAuteur(): ?string
-    {
-        return $this->auteur;
-    }
-
-    public function setAuteur(string $auteur): self
-    {
-        $this->auteur = $auteur;
-
-        return $this;
-    }
+    
 
     public function getNomImage(): ?string
     {
@@ -157,26 +143,18 @@ class Realisation
         return $this->slug;
     }
 
-    public function addAuteur(Auteur $auteur): self
+    public function getAuteur(): ?string
     {
-        if (!$this->Auteur->contains($auteur)) {
-            $this->Auteur[] = $auteur;
-            $auteur->setRealisation($this);
-        }
+        return $this->auteur;
+    }
+
+    public function setAuteur(string $auteur): self
+    {
+        $this->auteur = $auteur;
 
         return $this;
     }
 
-    public function removeAuteur(Auteur $auteur): self
-    {
-        if ($this->Auteur->removeElement($auteur)) {
-            // set the owning side to null (unless already changed)
-            if ($auteur->getRealisation() === $this) {
-                $auteur->setRealisation(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
 }

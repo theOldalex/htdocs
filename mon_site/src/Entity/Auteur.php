@@ -34,9 +34,15 @@ class Auteur
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Realisation::class, mappedBy="Auteur", orphanRemoval=true)
+     */
+    private $realisations;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->realisations = new ArrayCollection();
 
     }
 
@@ -104,17 +110,36 @@ class Auteur
         return $this->prenom;
     }
 
-    public function getRealisation(): ?Realisation
+    /**
+     * @return Collection|Realisation[]
+     */
+    public function getRealisations(): Collection
     {
-        return $this->realisation;
+        return $this->realisations;
     }
 
-    public function setRealisation(?Realisation $realisation): self
+    public function addRealisation(Realisation $realisation): self
     {
-        $this->realisation = $realisation;
+        if (!$this->realisations->contains($realisation)) {
+            $this->realisations[] = $realisation;
+            $realisation->setAuteur($this);
+        }
 
         return $this;
     }
+
+    public function removeRealisation(Realisation $realisation): self
+    {
+        if ($this->realisations->removeElement($realisation)) {
+            // set the owning side to null (unless already changed)
+            if ($realisation->getAuteur() === $this) {
+                $realisation->setAuteur('null');
+            }
+        }
+
+        return $this;
+    }
+
 
     
 }
