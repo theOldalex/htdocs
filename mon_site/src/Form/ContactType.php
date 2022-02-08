@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Contact;
-use FOS\CKEditorBundle\Config\CKEditorConfigurationInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -28,8 +28,17 @@ class ContactType extends AbstractType
                 'label' => 'Email: ',
             ])
 
-            ->add('sujet', TextType::class, [
-                'label' => 'Sujet: ',
+            ->add('sujet', ChoiceType::class, [
+                'choices' => [
+                    '--Choissisez un sujet--' => [
+                        'Je souhaite faire un partenariat' => 'Je souhaite un faire partenariat',
+                        'Je souhaite contribuer' => 'Je souhaite contribuer',
+                        'Je souhaite faire part d\'une suggestion' => 'Je souhaite faire part d\'une suggestion',
+                        'Ma demande concerne autre chose...' => 'Ma demande concerne autre chose...',
+
+                    ],
+
+                ],
             ])
 
             ->add('commentaire', TextareaType::class, [
