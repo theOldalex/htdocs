@@ -42,6 +42,11 @@ class Contact
      */
     private $fichier;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sujet;
+
 
     public function getId(): ?int
     {
@@ -104,6 +109,18 @@ class Contact
     public function setFichier($fichier): self
     {
         $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    public function getSujet(): ?string
+    {
+        return $this->sujet;
+    }
+
+    public function setSujet(string $sujet): self
+    {
+        $this->sujet = $sujet;
 
         return $this;
     }
