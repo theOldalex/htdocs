@@ -4,11 +4,11 @@
 
 		<header>
 			{% include 'nav.html.twig' %}
-			<div class="grix xs4 container">
 					{% for message in app.flashes('message') %}
-						<div class="col-xs4">
-							<div class="p-3 my-2 rounded-2 success">{{message}}</div>
+						<div class="alert alert-success">
+							{{message}}
 						</div>
+						{% endfor %}
 			{% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}
@@ -69,6 +69,9 @@
 			</header>
 
 		</main>
+</body>
 
-		{% include 'footer.html' %}{% include 'espace_utilisateur.html.twig' %}</body>
-</html></body></html>
+		{% include 'footer.html' %}
+		{% include 'espace_utilisateur.html.twig' %}
+</html>
+		
