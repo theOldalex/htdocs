@@ -11,12 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
+/**
+     * @Route("/z5600")
+     */
 class Z5600Controller extends AbstractController
 {
      
     /**
-     * @Route("/z5600", name="z5600", methods={"GET"})
+     * @Route("/", name="z5600", methods={"GET"})
      */
     public function index(Z5600Repository $z5600Repository, Request $request): Response
     {
