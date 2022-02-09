@@ -20,7 +20,10 @@ class EditProfileType extends AbstractType
             ->add('nom', TextType::class,[
                 'label' => 'Nom:',
                 ])
-            ->add('Envoyer', SubmitType::class)
+            ->add('Envoyer', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-success btn-sm',
+            ]])
            
         ;
     }

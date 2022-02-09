@@ -262,5 +262,39 @@ padding: 8% 5% ;
 
 }
 
-/* Barre de recherche  */
+/* Partie card de la page de profil utilisateur */
+
+.card {
+    box-shadow: 0 15px 10px 0 rgba(0,0,0,.1), 0 10px 10px 0 rgba(0,0,0,.1);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 5 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+    
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 8% 5% ;
+    
+
+    
+}
+
+.users-card {
+
+    background: linear-gradient(to right, #a10f0f, #009FFF,#000000 );
+}
+
 
