@@ -27,7 +27,6 @@ class ContactType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email: ',
             ])
-
             ->add('sujet', ChoiceType::class, [
                 'choices' => [
                     '--Choissisez un sujet--' => [
