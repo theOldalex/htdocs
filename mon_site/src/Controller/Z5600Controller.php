@@ -8,11 +8,17 @@ use App\Form\SearchZ5600Type;
 use App\Repository\Z5600Repository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
+/**
+     * @Route("/z5600")
+     */
 class Z5600Controller extends AbstractController
 {
+    /**
+     * @Route("/", name="z5600", methods={"GET"})
+     */
     public function index(Z5600Repository $z5600Repository, Request $request): Response
     {
         $form = $this->createForm(SearchZ5600Type::class,);
@@ -27,7 +33,9 @@ class Z5600Controller extends AbstractController
         ]);
     }
 
-    
+    /**
+     * @Route("/new", name="z5600_new", methods={"GET","POST"})
+     */
     public function new(Request $request): Response
     {
         $z5600 = new Z5600();
@@ -48,7 +56,9 @@ class Z5600Controller extends AbstractController
         ]);
     }
 
-    
+    /**
+     * @Route("/{id}", name="z5600_show", methods={"GET"})
+     */
     public function show(Z5600 $z5600): Response
     {
         return $this->render('z5600/show.html.twig', [
@@ -56,7 +66,9 @@ class Z5600Controller extends AbstractController
         ]);
     }
 
-   
+    /**
+     * @Route("/{id}/edit", name="z5600_edit", methods={"GET","POST"})
+     */
     public function edit(Request $request, Z5600 $z5600): Response
     {
         $form = $this->createForm(Z5600Type::class, $z5600);
@@ -75,7 +87,9 @@ class Z5600Controller extends AbstractController
         ]);
     }
 
-     
+    /**
+     * @Route("/{id}", name="z5600_delete", methods={"POST"})
+     */
     public function delete(Request $request, Z5600 $z5600): Response
     {
         if ($this->isCsrfTokenValid('delete'.$z5600->getId(), $request->request->get('_token'))) {
@@ -88,5 +102,3 @@ class Z5600Controller extends AbstractController
     }
 
 }
-
-

@@ -12,12 +12,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 
-
+/**
+     * @Route("/rerng")
+     */
 class RERNGController extends AbstractController
 {
     
     /**
-     * @Route("/rerng", name="rerng", methods={"GET"})
+     * @Route("/", name="rerng", methods={"GET"})
      */
     public function index(RERNGRepository $rERNGRepository): Response
     {
