@@ -2,6 +2,26 @@ home:
     path: /
     controller: App\Controller\HomeController::index
 
+rerng:
+    path: /rerng
+    controller: App\Controller\RERNGController::index
+
+rerng_new:
+    path: /new
+    controller: App\Controller\RERNGController::new
+
+rerng_show:
+    path: /{id}
+    controller: App\Controller\RERNGController::show
+
+rerng_edit:
+    path: /{id}/edit
+    controller: App\Controller\RERNGController::edit
+
+rerng_delete:
+    path: /{id}
+    controller: App\Controller\RERNGController::delete
+
 z5600:
     path: /z5600
     controller: App\Controller\Z5600Controller::index
@@ -22,25 +42,23 @@ z5600_delete:
     path: /{id}
     controller: App\Controller\Z5600Controller::delete
 
-rerng:
-    path: /rerng
-    controller: App\Controller\RERNGController::index
 
-rerng_new:
-    path: /new
-    controller: App\Controller\RERNGController::new
 
-rerng_show:
-    path: /{id}
-    controller: App\Controller\RERNGController::show
+users:
+    path: /users
+    controller: App\Controller\UsersController::index
 
-rerng_edit:
+users_edit:
     path: /{id}/edit
-    controller: App\Controller\RERNGController::edit
+    controller: App\Controller\UsersController::edit
 
-rerng_delete:
+users_delete:
     path: /{id}
-    controller: App\Controller\RERNGController::delete
+    controller: App\Controller\UsersController::delete
+
+
+
+
 
 dashboard:
     path: /admin
