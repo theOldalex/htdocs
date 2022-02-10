@@ -31,7 +31,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Rames</th>
                 <th>Motrices</th>
                 <th>Mise en service</th>
@@ -47,7 +46,6 @@
         <tbody>
         {% for z5600 in z5600s %}
             <tr>
-                <td>{{ z5600.id }}</td>
                 <td>{{ z5600.Rames }}</td>
                 <td>{{ z5600.motrices }}</td>
                 <td>{{ z5600.miseEnService ? z5600.miseEnService|date('d-m-Y') : '' }}</td>

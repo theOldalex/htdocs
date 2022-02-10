@@ -298,4 +298,13 @@ padding: 8% 5% ;
     background: linear-gradient(to right, #a10f0f, #009FFF,#000000 );
 }
 
+#user-avatar {
+    height: 6rem;
+    width: 6rem;
+    object-fit: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
 
+
+  

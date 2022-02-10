@@ -31,7 +31,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Rames</th>
                 <th>Motrices</th>
                 <th>Mise_en_service</th>
@@ -47,7 +46,6 @@
         <tbody>
         {% for r_e_r_n_g in r_e_r_n_gs %}
             <tr>
-                <td>{{ r_e_r_n_g.id }}</td>
                 <td>{{ r_e_r_n_g.Rames }}</td>
                 <td>{{ r_e_r_n_g.motrices }}</td>
                 <td>{{ r_e_r_n_g.miseEnService ? r_e_r_n_g.miseEnService|date('d-m-Y') : '' }}</td>

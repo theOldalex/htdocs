@@ -20,6 +20,7 @@
 				{% endfor %}
 				<div class="card" style="width: 45rem;">
 					<div class="card-body">
+				 <img src="{{ asset(app.user.avatar) }}" class="card-img-top" alt="votre avatar" id="user-avatar">
 						<h5 class="card-title text-center">{{app.user.prenom}}
 							{{app.user.nom}}</h5>
 						<ul class="list-group list-group-flush">

@@ -1,83 +1,77 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <a class="navbar-brand" href="{{ path('home') }}">
-        91xwriter - Alexandre Diakité</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+	<a class="navbar-brand" href="{{ path('home') }}">
+		91xwriter - Alexandre Diakité</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
 
-            <li class="nav-item">
-                
-            </li>
-        </button>
-         {% if not app.user %}
-    <a href="{{ path('app_register') }}" class="btn btn-dark">S'inscrire</a>
-    </li>
+			<li class="nav-item"></li>
+		</button>
+		{% if not app.user %}
+			<a href="{{ path('app_register') }}" class="btn btn-dark">S'inscrire</a>
+		</li>
 
-    <li class="nav-item">
-    <a href="{{ path('app_login') }}" class="btn btn-warning">Se connecter</a>
-        
-    </li>
-{% endif %}
-    
-     
+		<li class="nav-item">
+			<a href="{{ path('app_login') }}" class="btn btn-warning">Se connecter</a>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ path('realisation') }}">Mes réalisations</a>
-    </li>
+		</li>
+	{% endif %}
 
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Les trains</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ path('z5600') }}">Z5600</a>
-            <a class="dropdown-item" href="#">Z8800</a>
-            <a class="dropdown-item" href="#">Z20500</a>
-            <a class="dropdown-item" href="#">Z22500</a>
-            <a class="dropdown-item" href="#">Z20900</a>
-            <a class="dropdown-item" href="{{ path('rerng') }}">RERNG</a>
-
-        </div>
-    </li>
-
-<li class="nav-item">
-        <a class="nav-link" href="{{ path('article') }}">Blog</a>
-    </li>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ path('realisation') }}">Mes réalisations</a>
+	</li>
 
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ path('contact') }}">Me contacter</a>
-    </li>
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Les trains</a>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="{{ path('z5600') }}">Z5600</a>
+			<a class="dropdown-item" href="#">Z8800</a>
+			<a class="dropdown-item" href="#">Z20500</a>
+			<a class="dropdown-item" href="#">Z22500</a>
+			<a class="dropdown-item" href="#">Z20900</a>
+			<a class="dropdown-item" href="{{ path('rerng') }}">RERNG</a>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ path('cgu') }}">CGU</a>
-    </li>
+		</div>
+	</li>
 
-<li class="nav-item">
- {% if app.user %}
-        <a class="nav-link" href="{{ path('users') }}">Mon profil</a>
-         {% endif %}
-    </li>
-
-    <li class="nav-item">
- {% if is_granted('ROLE_ADMIN') %}
-        <a class="nav-link" href="{{ path('admin') }}">Admin</a>
-         {% endif %}
-    </li>
-
-    <li class="nav-item">
-        {% if app.user %}
-        <div class="nav-link">
-            <strong>Bienvenue {{ app.user.prenom }}!</strong> <a href="{{ path('app_logout') }}">❌</a>
-        </div>
-    {% endif %}
-    </li>
-
-</ul>
-
-</div>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ path('article') }}">Blog</a>
+	</li>
 
 
-</nav>
+	<li class="nav-item">
+		<a class="nav-link" href="{{ path('contact') }}">Me contacter</a>
+	</li>
+
+	<li class="nav-item">
+		<a class="nav-link" href="{{ path('cgu') }}">CGU</a>
+	</li>
+
+	<li class="nav-item">
+		{% if app.user %}
+			<a class="nav-link" href="{{ path('users') }}">Mon profil</a>
+		{% endif %}
+	</li>
+
+	<li class="nav-item">
+		{% if is_granted('ROLE_ADMIN') %}
+			<a class="nav-link" href="{{ path('admin') }}">Admin</a>
+		{% endif %}
+	</li>
+
+	<li class="nav-item">
+		{% if app.user %}
+			<div class="nav-link">
+				<strong>Bienvenue
+					{{ app.user.prenom }}!</strong>
+				<a href="{{ path('app_logout') }}">❌</a>
+			</div>
+		{% endif %}
+	</li>
+
+</ul></div></nav>
