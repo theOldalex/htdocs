@@ -14,7 +14,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -29,7 +30,7 @@ class ArticleCrudController extends AbstractCrudController
 
         return [
             TextField::new('Titre'),
-            TextEditorField::new('Contenu'),
+            TextareaField::new('Contenu'),
             $image = ImageField::new('image')
                 ->setUploadDir('/public')
                 ->setLabel('Image'),

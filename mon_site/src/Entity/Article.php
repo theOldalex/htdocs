@@ -37,6 +37,7 @@ class Article
 
     /**
      * @ORM\Column(type="string")
+     * 
      */
     private $image;
 

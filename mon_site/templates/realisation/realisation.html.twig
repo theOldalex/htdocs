@@ -1,85 +1,85 @@
 <html>
-{% include 'head.html' %}
+	{% include 'head.html' %}
 	<body>
 
 		<header>
 			{% include 'nav.html.twig' %}
-            </header>
+		</header>
 
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+		<link
+		rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
-    
 
-    <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap core CSS -->
+		<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+			}
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-  </head>
-  <body>
-    
+			@media(min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+	</body>
+</html></head><body>
 
 
 <main>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Mes réalisations</h1>
-        <p class="lead text-muted">Voici ma galerie photo où j'y posterai régulièrement des créations récentes ainsi que des archives. </p>
-      </div>
-    </div>
-  </section>
+	<section class="py-5 text-center container">
+		<div class="row py-lg-5">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">Mes réalisations</h1>
+				<p></p>
+			</div>
+		</div>
+	</section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+	<div class="album py-5 bg-light">
+		<div class="container">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      {% for realisation in realisations %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" src="{{ asset(realisation.photo) }}" width="100%" height="225">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{% for realisation in realisations %}
+					<div class="col">
+						<div class="card shadow-sm">
+							<img class="bd-placeholder-img card-img-top" src="{{ asset(realisation.photo) }}" width="100%" height="225">
 
-            <div class="card-body">
-            <h4 class="card-title">
-                {{ realisation.nomImage }} 
-            </h4>
-              <p class="card-text">Publié par {{ realisation.auteur }} le {{ realisation.datePublication ? realisation.datePublication|date('d-m-Y') : '' }}</p>
-              <p class="card-text">>{{ realisation.descriptionImage }}</p>
-            </div>
-          </div>
-        {% endfor %}
-</main>
+							<div class="card-body">
+								<h4 class="card-title">
+									{{ realisation.nomImage }}
+								</h4>
+								<p class="card-text">Publié par
+									{{ realisation.auteur }}
+									le
+									{{ realisation.datePublication ? realisation.datePublication|date('d-m-Y') : '' }}</p>
+
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</main>
+
+			<footer class="text-muted py-5">
+				<div class="container">
+					<p class="float-end mb-1">
+						<a class="btn btn-sm btn-primary" href="#">Retourner en haut</a>
+					</p>
+					<p class="mb-1 py-4">2021 &copy; 91xwriter - Alexandre Diakité</p>
+				</div>
+			</footer>
 
 
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a class="btn btn-sm btn-primary" href="#">Retourner en haut</a>
-    </p>
-    <p class="mb-1 py-4">2021 &copy; 91xwriter - Alexandre Diakité</p>
-  </div>
-</footer>
+			<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
-  </body>
-</html>
+		</body>
+	</html>
