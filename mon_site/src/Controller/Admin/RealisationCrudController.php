@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class RealisationCrudController extends AbstractCrudController
 {
@@ -26,7 +27,7 @@ class RealisationCrudController extends AbstractCrudController
             $auteur = AssociationField::new('Auteur'),
             TextField::new('nom_image'),
             DateField::new('Date_publication'),
-            TextEditorField::new('description_image'),
+            TextField::new('description_image'),
             $photo = ImageField::new('photo')
                 ->setUploadDir('/public')
                 ->setLabel('Image'),
